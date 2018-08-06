@@ -22,6 +22,17 @@
   font-size: large;
 }
 
+.Cars {
+  vertical-align: middle;
+  margin: 0 5%;
+  width: 90%;
+  border: #222 solid 1px;
+}
+
+.Cars thead {
+  background: lightseagreen;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
