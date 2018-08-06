@@ -3,9 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 const data = [
-  ['Alexander', 345345, 887423],
-  ['Paul', 2347, 76323],
-  ['Larisa', 745, 54234],
+  ['Mark', 'Ford'],
+  ['Model', 'Focus'],
+  ['Type', 'Hatchback'],
+  ['Year', 2014],
 ];
 
 class App extends Component {
@@ -23,19 +24,22 @@ class App extends Component {
         <table className="Cars">
           <thead className="Cars-header">
             <tr>
-              <td>Mark</td>
-              <td>Model</td>
-              <td>Type</td>
-              <td>Year</td>
+              <td>{data[0][0]}</td>
+              <td>{data[1][0]}</td>
+              <td>{data[2][0]}</td>
+              <td>{data[3][0]}</td>
             </tr>
           </thead>
           <tbody className="Cars-body">
-          <tr>
-              <td>Ford</td>
-              <td>F150</td>
-              <td>Truck</td>
-              <td>2018</td>
+          { 
+            <tr>
+              <td>{data[0][1]}</td>
+              <td>{data[1][1]}</td>
+              <td>{data[2][1]}</td>
+              <td>{data[3][1]}</td>
             </tr>
+          }
+          
           </tbody>
         </table>
       </div>
