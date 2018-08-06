@@ -6,7 +6,8 @@ const header = ['Mark','Model','Type','Year'];
 
 const data = [
   ["Ford", "Focus III", "Hatchback", 2014],
-  ["Ford", "Mondeo", "Sedan", 2009]
+  ["Ford", "Mondeo", "Sedan", 2009],
+  ["Mazda", "X6", "Crossover", 2011]
 ];
 
 class App extends Component {
