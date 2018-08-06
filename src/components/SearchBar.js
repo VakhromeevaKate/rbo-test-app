@@ -3,7 +3,6 @@ import React from 'react';
 class SearchBar extends React.Component {
     render() {
       return (
-        <form>
           <div className="SearchBar">
           <div>
             <label>Group By: </label>
@@ -18,25 +17,24 @@ class SearchBar extends React.Component {
           </div>
           <input className="SearchBarInput" type="text" placeholder="Search..." />
           </div>
-        </form>
       );
-    }
+    };
 
     groupByMark = () => {
       console.log("groupByMark");
-    }
+    };
     groupByType = () => {
       console.log("groupByType");
-    }
+    };
     sortByMark = () => {
       console.log("sortByMark");
-    }
+    };
     sortByType = () => {
       console.log("sortByType");
-    }
+    };
     sortByYear = () => {
       console.log("sortByYear");
-    }
+    };
 
   }
   
