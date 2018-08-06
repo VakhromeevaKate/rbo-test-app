@@ -6,13 +6,13 @@ import FilterableProductTable from './components/FilterableProductTable';
 const header = ['Mark','Model','Type','Year'];
 
 const PRODUCTS = [
-  {Mark: 'Ford', Model: "Focus III", Type: "Hatchback", Year: 2014},
-  {Mark: 'Ford', Model: "Mondeo", Type: "Sedan", Year: 2009},
-  {Mark: 'Ford', Model: "Focus III", Type: "Sedan", Year: 2012},
-  {Mark: 'Ford', Model: "F150", Type: "Truck", Year: 2017},
-  {Mark: 'Jeep', Model: "Cherokee", Type: "SUV", Year: 2015},
-  {Mark: 'Jeep', Model: "Compass", Type: "SUV", Year: 2014},
-  {Mark: 'Jeep', Model: "Grand Cherokee", Type: "SUV", Year: 2018},
+  {Id: '1', Mark: 'Ford', Model: "Focus III", Type: "Hatchback", Year: 2014},
+  {Id: '2', Mark: 'Ford', Model: "Mondeo", Type: "Sedan", Year: 2009},
+  {Id: '3', Mark: 'Ford', Model: "Focus III", Type: "Sedan", Year: 2012},
+  {Id: '4', Mark: 'Ford', Model: "F150", Type: "Truck", Year: 2017},
+  {Id: '5', Mark: 'Jeep', Model: "Cherokee", Type: "SUV", Year: 2015},
+  {Id: '6', Mark: 'Jeep', Model: "Compass", Type: "SUV", Year: 2014},
+  {Id: '7', Mark: 'Jeep', Model: "Grand Cherokee", Type: "SUV", Year: 2018},
 ];
 
 class App extends Component {

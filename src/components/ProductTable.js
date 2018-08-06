@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ProductRow from './ProductRow';
 
 class ProductTable extends React.Component {
     render() {
       var rows = [];
       this.props.products.forEach(function(product) {
-        rows.push(<ProductRow product={product} key={product.name} />);
+        rows.push(<ProductRow product={product} key={product.Id} />);
       });
       return (
         <table className="Cars">
