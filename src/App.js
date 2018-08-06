@@ -23,7 +23,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">RBO Test App</h1>
         </header>
-        <h2> Здесь будет моя таблица </h2>
+        <h3>Searching for a car?</h3>
         <FilterableProductTable products={PRODUCTS}/>
       </div>
     );

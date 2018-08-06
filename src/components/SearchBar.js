@@ -4,12 +4,20 @@ class SearchBar extends React.Component {
     render() {
       return (
         <form>
-          <input type="text" placeholder="Search..." />
-          <p>
-            <input type="checkbox" />
-            {' '}
-            Only show products in stock
-          </p>
+          <div className="SearchBar">
+          <div>
+            <label>Group By: </label>
+            <button className="SearchBarButton" onClick="groupByMark">Mark</button>
+            <button className="SearchBarButton" onClick="groupByType">Type</button>
+          </div>
+          <div>
+            <label>Sort By: </label>
+            <button className="SearchBarButton" onClick="sortByMark">Mark</button>
+            <button className="SearchBarButton" onClick="sortByType">Type</button>
+            <button className="SearchBarButton" onClick="sortByYear">Year</button>
+          </div>
+          <input className="SearchBarInput" type="text" placeholder="Search..." />
+          </div>
         </form>
       );
     }
