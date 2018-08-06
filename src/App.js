@@ -19,30 +19,7 @@ class App extends Component {
           <h1 className="App-title">RBO Test App</h1>
         </header>
         <h2> Здесь будет моя таблица </h2>
-        <table className="Cars">
-          <thead className="Cars-header">
-            <tr>
-              <td>{header[0]}</td>
-              <td>{header[1]}</td>
-              <td>{header[2]}</td>
-              <td>{header[3]}</td>
-            </tr>
-          </thead>
-          <tbody className="Cars-body">
-            <tr>
-              <td>{data[0][0]}</td>
-              <td>{data[0][1]}</td>
-              <td>{data[0][2]}</td>
-              <td>{data[0][3]}</td>
-            </tr>
-            <tr>
-              <td>{data[1][0]}</td>
-              <td>{data[1][1]}</td>
-              <td>{data[1][2]}</td>
-              <td>{data[1][3]}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div></div>
       </div>
     );
   }
