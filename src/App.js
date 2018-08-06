@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import FilterableProductTable from './components/FilterableProductTable';
 
 const header = ['Mark','Model','Type','Year'];
 
-const data = [
-  ["Ford", "Focus III", "Hatchback", 2014],
-  ["Ford", "Mondeo", "Sedan", 2009],
-  ["Mazda", "X6", "Crossover", 2011]
+const PRODUCTS = [
+  {Mark: 'Ford', Model: "Focus III", Type: "Hatchback", Year: 2014},
+  {Mark: 'Ford', Model: "Mondeo", Type: "Sedan", Year: 2009},
+  {Mark: 'Ford', Model: "Focus III", Type: "Sedan", Year: 2012},
+  {Mark: 'Ford', Model: "F150", Type: "Truck", Year: 2017},
+  {Mark: 'Jeep', Model: "Cherokee", Type: "SUV", Year: 2015},
+  {Mark: 'Jeep', Model: "Compass", Type: "SUV", Year: 2014},
+  {Mark: 'Jeep', Model: "Grand Cherokee", Type: "SUV", Year: 2018},
 ];
 
 class App extends Component {
@@ -19,7 +24,7 @@ class App extends Component {
           <h1 className="App-title">RBO Test App</h1>
         </header>
         <h2> Здесь будет моя таблица </h2>
-        <div></div>
+        <FilterableProductTable products={PRODUCTS}/>
       </div>
     );
   }
