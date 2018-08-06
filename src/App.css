@@ -22,7 +22,15 @@
   vertical-align: middle;
   margin: 0 5%;
   width: 90%;
-  border: #222 solid 1px;
+  border: #ccc solid 1px;
+}
+
+.Cars td {
+  border-right: #ccc solid 1 px
+}
+
+.Cars tr :last-child {
+  border-right: none;
 }
 
 .Cars tbody tr:nth-child(odd){ /* Задаем стили для нечетных рядов таблицы */
