@@ -18,15 +18,18 @@
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
-}
-
 .Cars {
   vertical-align: middle;
   margin: 0 5%;
   width: 90%;
   border: #222 solid 1px;
+}
+
+.Cars tbody tr:nth-child(odd){ /* Задаем стили для нечетных рядов таблицы */
+	background: #fff;
+}
+.Cars tbody tr:nth-child(even){ /* Задаем стили для четных рядов таблицы */
+	background: #f2f6f8;
 }
 
 .Cars thead {
