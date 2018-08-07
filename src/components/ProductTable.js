@@ -4,9 +4,16 @@ import ProductRow from './ProductRow';
 class ProductTable extends React.Component {
     render() {
       var rows = [];
-      this.props.products.forEach(function(product) {
-        rows.push(<ProductRow product={product} key={product.Id} />);
-      });
+      /*this.props.products.forEach(function(product) {
+        rows.push(<ProductRow product={product} key={product.name} />);
+      });*/
+      
+    this.props.products.forEach((product) => {
+      if (product.Mark.indexOf(this.props.filterText) === -1) {
+        return;
+      }
+      rows.push(<ProductRow product={product} key={product.Id} />);
+    });
       return (
         <table className="Cars">
           <thead className="Cars-header">
