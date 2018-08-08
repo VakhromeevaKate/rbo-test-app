@@ -1,9 +1,10 @@
 import React from 'react';
 import ProductRow from './ProductRow';
+import GroupedProductHeaderRow from './GroupedProductHeaderRow';
 
 class ProductTable extends React.Component {
     render() {
-    var rows = [];
+    let rows = [];
     this.props.products.forEach((product) => {
       if (product.Mark.toUpperCase().indexOf(this.props.filterText.toUpperCase()) === -1 &&
           product.Model.toUpperCase().indexOf(this.props.filterText.toUpperCase()) === -1 &&
@@ -54,11 +55,30 @@ class ProductTable extends React.Component {
         if(a.props.product.Type > b.props.product.Type) return 1;
         return 0;
       }); 
+      var grouped_rows = [];
+      let header = {Id: null, Mark: null, Type: null, Year: null};
+      for (let i = 0; i < rows.length; i++){
+        if (i === 0){          
+          header.Id = rows.length + i + 1;
+          header.Type = rows[i].props.product.Type;
+          grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
+          grouped_rows.push(rows[i]);
+          console.log(grouped_rows);
+        } else if (rows[i].props.product.Type !== rows[i-1].props.product.Type){
+          header.Id = rows.length + i + 1;
+          header.Type = rows[i].props.product.Type; 
+          grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
+          grouped_rows.push(rows[i]);
+        } else {
+          grouped_rows.push(rows[i]);
+        } 
+        console.log('i = '+ i +', header.Type = ' + header.Type);
+      }
       return(
         <table className="Cars">
           <thead className="Cars-header">
           </thead>
-          <tbody className="Cars-body">{rows}</tbody>
+          <tbody className="Cars-body">{grouped_rows}</tbody>
         </table>
       );
     }

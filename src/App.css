@@ -35,6 +35,11 @@
   background: lightseagreen;
 }
 
+.GroupHeader {
+  background: lightseagreen;
+  text-align: left;
+}
+
 .SearchBar {
   width: 90%;
 }
