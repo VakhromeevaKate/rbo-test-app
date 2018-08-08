@@ -36,9 +36,33 @@ class ProductTable extends React.Component {
     }
     if(this.props.groupByMark === true){
       console.log("Here we will groupByMark!");
+      rows.sort(function(a, b){
+        if(a.props.product.Mark < b.props.product.Mark) return -1;
+        if(a.props.product.Mark > b.props.product.Mark) return 1;
+        return 0;
+      }); 
+      return(
+        <table className="Cars">
+          <thead className="Cars-header">
+          </thead>
+          <tbody className="Cars-body">{rows}</tbody>
+        </table>
+      );
     }
     if(this.props.groupByType === true){
       console.log("Here we will groupByType!");
+      rows.sort(function(a, b){
+        if(a.props.product.Type < b.props.product.Type) return -1;
+        if(a.props.product.Type > b.props.product.Type) return 1;
+        return 0;
+      }); 
+      return(
+        <table className="Cars">
+          <thead className="Cars-header">
+          </thead>
+          <tbody className="Cars-body">{rows}</tbody>
+        </table>
+      );
     }
       return (
         <table className="Cars">
