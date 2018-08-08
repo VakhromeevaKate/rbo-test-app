@@ -34,6 +34,12 @@ class ProductTable extends React.Component {
         return 0;
       });
     }
+    if(this.props.groupByMark === true){
+      console.log("Here we will groupByMark!");
+    }
+    if(this.props.groupByType === true){
+      console.log("Here we will groupByType!");
+    }
       return (
         <table className="Cars">
           <thead className="Cars-header">

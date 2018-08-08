@@ -5,22 +5,29 @@ class SearchBar extends React.Component {
     super(props);
     
     this.handleChange = this.handleChange.bind(this);
+    this.handleClickGroupByMark = this.handleClickGroupByMark.bind(this);
+    this.handleClickGroupByType = this.handleClickGroupByType.bind(this);
     this.handleClickSortByMark = this.handleClickSortByMark.bind(this);
     this.handleClickSortByType = this.handleClickSortByType.bind(this);
     this.handleClickSortByYear = this.handleClickSortByYear.bind(this);
   }
 
   handleChange() {
-    console.log('I am here: handleChange')
     this.props.onUserInput(
       this.filterTextInput.value
     );
   }
   handleClickGroupByMark() {
-    console.log('I am here: handleClickGroupByMark')
+    console.log('I am here: handleClickGroupByMark');
+    this.props.onGroupByMark(
+      this.props.onGroupByMark
+    );
   }
   handleClickGroupByType() {
-    console.log('I am here: handleClickGroupByType')
+    console.log('I am here: handleClickGroupByType');
+    this.props.onGroupByType(
+      this.props.onGroupByType
+    );
   }
   handleClickSortByMark() {
     this.props.onSortByMark(
