@@ -50,7 +50,6 @@ class FilterableProductTable extends React.Component {
         });
     }
     handleGroupByMark(){
-        console.log('I am here: handleGroupByMark')
         this.setState({
             groupByMark: true,
             groupByType: false,
@@ -60,7 +59,6 @@ class FilterableProductTable extends React.Component {
         });
     }
     handleGroupByType(){
-        console.log('I am here: handleGroupByType')
         this.setState({
             groupByMark: false,
             groupByType: true,

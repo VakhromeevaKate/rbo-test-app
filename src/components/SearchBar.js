@@ -18,13 +18,11 @@ class SearchBar extends React.Component {
     );
   }
   handleClickGroupByMark() {
-    console.log('I am here: handleClickGroupByMark');
     this.props.onGroupByMark(
       this.props.onGroupByMark
     );
   }
   handleClickGroupByType() {
-    console.log('I am here: handleClickGroupByType');
     this.props.onGroupByType(
       this.props.onGroupByType
     );

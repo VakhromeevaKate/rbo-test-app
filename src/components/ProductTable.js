@@ -35,7 +35,6 @@ class ProductTable extends React.Component {
       });
     }
     if(this.props.groupByMark === true){
-      console.log("Here we will groupByMark!");
       rows.sort(function(a, b){
         if(a.props.product.Mark < b.props.product.Mark) return -1;
         if(a.props.product.Mark > b.props.product.Mark) return 1;
@@ -50,7 +49,6 @@ class ProductTable extends React.Component {
       );
     }
     if(this.props.groupByType === true){
-      console.log("Here we will groupByType!");
       rows.sort(function(a, b){
         if(a.props.product.Type < b.props.product.Type) return -1;
         if(a.props.product.Type > b.props.product.Type) return 1;
