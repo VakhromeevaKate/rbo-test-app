@@ -14,34 +14,25 @@ class ProductTable extends React.Component {
       rows.push(<ProductRow product={product} key={product.Id} />);
     });
     if(this.props.sortByMark === true){
-      console.log('sortByMark = ' + this.props.sortByMark);
-      console.log('sortByMark case in ProductTable')
         rows.sort(function(a, b){
         if(a.props.product.Mark < b.props.product.Mark) return -1;
         if(a.props.product.Mark > b.props.product.Mark) return 1;
         return 0;
-      });
-      console.log(rows);    
+      }); 
     }
     if(this.props.sortByType === true){
-      console.log('sortByType = ' + this.props.sortByType);
-      console.log('sortByType case in ProductTable')
         rows.sort(function(a, b){
         if(a.props.product.Type < b.props.product.Type) return -1;
         if(a.props.product.Type > b.props.product.Type) return 1;
         return 0;
-      });
-      console.log(rows);    
+      }); 
     }
     if(this.props.sortByYear === true){
-      console.log('sortByYear = ' + this.props.sortByYear);
-      console.log('sortByYear case in ProductTable')
         rows.sort(function(a, b){
         if(a.props.product.Year < b.props.product.Year) return -1;
         if(a.props.product.Year > b.props.product.Year) return 1;
         return 0;
       });
-      console.log(rows);    
     }
       return (
         <table className="Cars">
