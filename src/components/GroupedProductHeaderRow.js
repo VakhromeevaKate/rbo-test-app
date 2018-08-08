@@ -6,7 +6,7 @@ class GroupedProductHeaderRow extends React.Component {
         return (
             <tr> 
                 <th className="GroupHeader" colSpan={4}>
-                    Group: {this.props.product.Type === null ? this.props.product.Mark : this.props.product.Type}
+                    {this.props.product.Type === null ? this.props.product.Mark : this.props.product.Type}
                 </th>
             </tr>   
         );
