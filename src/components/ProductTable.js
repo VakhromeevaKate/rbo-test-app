@@ -42,14 +42,15 @@ class ProductTable extends React.Component {
         return 0;
       }); 
       let grouped_rows = [];
-      let header = {Id: null, Mark: null, Type: null, Year: null};
       for (let i = 0; i < rows.length; i++){
-        if (i === 0){          
+        if (i === 0){        
+          let header = {Id: null, Mark: null, Type: null, Year: null};  
           header.Id = rows.length + i + 1;
           header.Mark = rows[i].props.product.Mark;
           grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
           grouped_rows.push(rows[i]);
         } else if (rows[i].props.product.Mark !== rows[i-1].props.product.Mark){
+          let header = {Id: null, Mark: null, Type: null, Year: null}; 
           header.Id = rows.length + i + 1;
           header.Mark = rows[i].props.product.Mark; 
           grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
@@ -73,14 +74,15 @@ class ProductTable extends React.Component {
         return 0;
       }); 
       let grouped_rows = [];
-      let header = {Id: null, Mark: null, Type: null, Year: null};
       for (let i = 0; i < rows.length; i++){
-        if (i === 0){          
+        if (i === 0){  
+          let header = {Id: null, Mark: null, Type: null, Year: null};        
           header.Id = rows.length + i + 1;
           header.Type = rows[i].props.product.Type;
           grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
           grouped_rows.push(rows[i]);
         } else if (rows[i].props.product.Type !== rows[i-1].props.product.Type){
+          let header = {Id: null, Mark: null, Type: null, Year: null};
           header.Id = rows.length + i + 1;
           header.Type = rows[i].props.product.Type; 
           grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
@@ -88,7 +90,6 @@ class ProductTable extends React.Component {
         } else {
           grouped_rows.push(rows[i]);
         } 
-        console.log('i = '+ i +', header.Type = ' + header.Type);
       }
       return(
         <table className="Cars">
