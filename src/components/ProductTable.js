@@ -15,37 +15,33 @@ class ProductTable extends React.Component {
     });
     if(this.props.sortByMark === true){
       console.log('sortByMark = ' + this.props.sortByMark);
-      let sorted;
       console.log('sortByMark case in ProductTable')
-      sorted = rows.sort(function(a, b){
-        if(a.Mark < b.Mark) return -1;
-        if(a.Mark > b.Mark) return 1;
+        rows.sort(function(a, b){
+        if(a.props.product.Mark < b.props.product.Mark) return -1;
+        if(a.props.product.Mark > b.props.product.Mark) return 1;
         return 0;
       });
-      console.log(sorted);   
-      rows = sorted;    
+      console.log(rows);    
     }
     if(this.props.sortByType === true){
       console.log('sortByType = ' + this.props.sortByType);
-      let sorted;
-      sorted = rows.sort(function(a, b){
-        if(a.Type < b.Type) return -1;
-        if(a.Type > b.Type) return 1;
+      console.log('sortByType case in ProductTable')
+        rows.sort(function(a, b){
+        if(a.props.product.Type < b.props.product.Type) return -1;
+        if(a.props.product.Type > b.props.product.Type) return 1;
         return 0;
-      });      
-      console.log(sorted);   
-      rows = sorted;  
+      });
+      console.log(rows);    
     }
     if(this.props.sortByYear === true){
       console.log('sortByYear = ' + this.props.sortByYear);
-      let sorted;
-      sorted = rows.sort(function(a, b){
-        if(a.Year < b.Year) return -1;
-        if(a.Year > b.Year) return 1;
+      console.log('sortByYear case in ProductTable')
+        rows.sort(function(a, b){
+        if(a.props.product.Year < b.props.product.Year) return -1;
+        if(a.props.product.Year > b.props.product.Year) return 1;
         return 0;
-      });  
-      console.log(sorted);    
-      rows = sorted;  
+      });
+      console.log(rows);    
     }
       return (
         <table className="Cars">
