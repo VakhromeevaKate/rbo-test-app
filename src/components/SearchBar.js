@@ -23,19 +23,16 @@ class SearchBar extends React.Component {
     console.log('I am here: handleClickGroupByType')
   }
   handleClickSortByMark() {
-    console.log('I am here: handleClickGroupByType')
     this.props.onSortByMark(
       this.props.onSortByMark
     );
   }
   handleClickSortByType() {
-    console.log('I am here: handleClickSortByType')
     this.props.onSortByType(
       this.props.onSortByType
     );
   }
   handleClickSortByYear() {
-    console.log('I am here: handleClickSortByYear')
     this.props.onSortByYear(
       this.props.onSortByYear
     );
