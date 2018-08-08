@@ -45,7 +45,6 @@ class FilterableProductTable extends React.Component {
         );
     }
     handleUserInput(filterText) {
-        console.log('I am here: handleUserInput')
         this.setState({
           filterText: filterText
         });
@@ -71,7 +70,6 @@ class FilterableProductTable extends React.Component {
         });
     }
     handleSortByMark(){
-        console.log('I am here: handleSortByMark')
         this.setState({
             groupByMark: false,
             groupByType: false,
@@ -79,10 +77,8 @@ class FilterableProductTable extends React.Component {
             sortByType: false,
             sortByYear: false
         });
-        console.log(this.state.sortByMark)
     }
     handleSortByType(){
-        console.log('I am here: handleSortByType')
         this.setState({
             groupByMark: false,
             groupByType: false,
@@ -92,7 +88,6 @@ class FilterableProductTable extends React.Component {
         });
     }
     handleSortByYear(){
-        console.log('I am here: handleSortByYear')
         this.setState({
             groupByMark: false,
             groupByType: false,
