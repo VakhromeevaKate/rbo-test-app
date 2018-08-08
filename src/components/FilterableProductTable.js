@@ -53,31 +53,51 @@ class FilterableProductTable extends React.Component {
     handleGroupByMark(){
         console.log('I am here: handleGroupByMark')
         this.setState({
-            groupByMark: true
+            groupByMark: true,
+            groupByType: false,
+            sortByMark: false,
+            sortByType: false,
+            sortByYear: false
         });
     }
     handleGroupByType(){
         console.log('I am here: handleGroupByType')
         this.setState({
-            groupByType: true
+            groupByMark: false,
+            groupByType: true,
+            sortByMark: false,
+            sortByType: false,
+            sortByYear: false
         });
     }
     handleSortByMark(){
         console.log('I am here: handleSortByMark')
         this.setState({
-            sortByMark: true
+            groupByMark: false,
+            groupByType: false,
+            sortByMark: true,
+            sortByType: false,
+            sortByYear: false
         });
         console.log(this.state.sortByMark)
     }
     handleSortByType(){
         console.log('I am here: handleSortByType')
         this.setState({
-           sortByType: true
+            groupByMark: false,
+            groupByType: false,
+            sortByMark: false,
+            sortByType: true,
+            sortByYear: false
         });
     }
     handleSortByYear(){
         console.log('I am here: handleSortByYear')
         this.setState({
+            groupByMark: false,
+            groupByType: false,
+            sortByMark: false,
+            sortByType: false,
             sortByYear: true
         });
     }
