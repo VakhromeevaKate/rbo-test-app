@@ -55,7 +55,8 @@ class FilterableProductTable extends React.Component {
             groupByType: false,
             sortByMark: false,
             sortByType: false,
-            sortByYear: false
+            sortByYear: false,
+            showDetails: false
         });
     }
     handleGroupByType(){
@@ -64,7 +65,8 @@ class FilterableProductTable extends React.Component {
             groupByType: true,
             sortByMark: false,
             sortByType: false,
-            sortByYear: false
+            sortByYear: false,
+            showDetails: false
         });
     }
     handleSortByMark(){
@@ -73,7 +75,8 @@ class FilterableProductTable extends React.Component {
             groupByType: false,
             sortByMark: true,
             sortByType: false,
-            sortByYear: false
+            sortByYear: false,
+            showDetails: false
         });
     }
     handleSortByType(){
@@ -82,7 +85,8 @@ class FilterableProductTable extends React.Component {
             groupByType: false,
             sortByMark: false,
             sortByType: true,
-            sortByYear: false
+            sortByYear: false,
+            showDetails: false
         });
     }
     handleSortByYear(){
@@ -91,7 +95,8 @@ class FilterableProductTable extends React.Component {
             groupByType: false,
             sortByMark: false,
             sortByType: false,
-            sortByYear: true
+            sortByYear: true,
+            showDetails: false
         });
     }
 }

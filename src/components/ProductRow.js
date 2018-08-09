@@ -1,25 +1,15 @@
 import React from 'react';
 
-class ProductRow extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      showDetails: false
-    };
-    this.handleClickShowDetails = this.handleClickShowDetails.bind(this);
-  }  
+class ProductRow extends React.Component { 
   render() {
       return (
-        <tr onClick={this.handleClickShowDetails}>
+        <tr onClick={() => this.props.showDetails(true)}>
           <td>{this.props.product.Mark}</td>
           <td>{this.props.product.Model}</td>
           <td>{this.props.product.Type}</td>
           <td>{this.props.product.Year}</td>
         </tr>
       );
-    }
-    handleClickShowDetails(){
-      alert();
     }
   }
   

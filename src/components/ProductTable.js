@@ -1,8 +1,16 @@
 import React from 'react';
 import ProductRow from './ProductRow';
 import GroupedProductHeaderRow from './GroupedProductHeaderRow';
+import ProductDetails from './ProductDetails';
 
 class ProductTable extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      showDetails: ''
+    };
+    this.handleShowDetails = this.handleShowDetails.bind(this);
+  }
     render() {
     let rows = [];
     this.props.products.forEach((product) => {
@@ -12,7 +20,7 @@ class ProductTable extends React.Component {
           product.Year.toString().indexOf(this.props.filterText) === -1 ) {
         return;
       }
-      rows.push(<ProductRow product={product} key={product.Id} />);
+      rows.push(<ProductRow showDetails={this.handleShowDetails} product={product} key={product.Id} />);
     });
     if(this.props.sortByMark === true){
         rows.sort(function(a, b){
@@ -99,6 +107,11 @@ class ProductTable extends React.Component {
         </table>
       );
     }
+    if (this.state.showDetails === true){
+      return (
+        <ProductDetails showDetails={this.handleShowDetails}/>
+      )
+    }
       return (
         <table className="Cars">
           <thead className="Cars-header">
@@ -112,6 +125,13 @@ class ProductTable extends React.Component {
           <tbody className="Cars-body">{rows}</tbody>
         </table>
       );
+    }
+
+    handleShowDetails(value){
+      console.log("handleShowDetails in Product Table: " + value.toString());
+      this.setState({
+          showDetails: value
+      })
     }
   }
   export default ProductTable;
