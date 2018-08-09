@@ -7,7 +7,8 @@ class ProductTable extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      showDetails: ''
+      showDetails: '',
+      productId: null
     };
     this.handleShowDetails = this.handleShowDetails.bind(this);
   }
@@ -109,7 +110,10 @@ class ProductTable extends React.Component {
     }
     if (this.state.showDetails === true){
       return (
-        <ProductDetails showDetails={this.handleShowDetails}/>
+        <ProductDetails 
+          showDetails={this.handleShowDetails} 
+          productId={this.state.productId}
+          products={this.props.products}/>
       )
     }
       return (
@@ -127,11 +131,12 @@ class ProductTable extends React.Component {
       );
     }
 
-    handleShowDetails(value){
-      console.log("handleShowDetails in Product Table: " + value.toString());
+    handleShowDetails(value, id){
+      console.log(id);
       this.setState({
-          showDetails: value
-      })
+          showDetails: value,
+          productId: id
+      });
     }
   }
   export default ProductTable;
