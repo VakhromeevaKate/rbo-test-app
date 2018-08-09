@@ -1,12 +1,24 @@
 import React from 'react';
+import CommonProducts from './CommonProducts';
 
 class ProductDetails extends React.Component {
     render () {
         let product;
+        let common = [];
         if (this.props.productId !== null){
             product = this.props.products[this.props.productId-1];
-            console.log(product);
+            this.props.products.forEach((entity) => {
+                if ((entity.Color.toUpperCase()  === product.Color.toUpperCase() &&
+                    entity.Type.toUpperCase() === product.Type.toUpperCase()) ||
+                    (entity.Options.toUpperCase().indexOf(product.Options.toUpperCase()) !== -1 &&
+                    entity.Type.toUpperCase() === product.Type.toUpperCase()) || 
+                    (entity.Type.toUpperCase() === product.Type.toUpperCase() && 
+                    entity.Options.toUpperCase().indexOf(product.Options.toUpperCase() !== -1))){
+                    common.push(<CommonProducts showDetails={this.handleShowDetails} product={entity} key={entity.Id} />);
+                }
+            });
         }
+        
         return (
             <div onClick={() => this.props.showDetails(false)}>
                 <h1>Car details</h1>
@@ -29,14 +41,31 @@ class ProductDetails extends React.Component {
                         </tr>
                         <tr>
                             <td>Country</td>
-                            <td></td>
+                            <td>{product.Country}</td>
                         </tr>
                         <tr>
                             <td>Options</td>
-                            <td></td>
+                            <td>{product.Options}</td>
                         </tr>
                     </tbody>
                 </table>
+                <div>
+                    <h2>You may also like: </h2>
+                    <table className="Cars">
+                        <thead className="Cars-header">
+                        <tr>
+                            <th>Mark</th>
+                            <th>Model</th>
+                            <th>Type</th>
+                            <th>Country</th>
+                            <th>Color</th>
+                            <th>Options</th>
+                            <th>Year</th>
+                        </tr>
+                        </thead>
+                        <tbody className="Cars-body">{common}</tbody>
+                    </table>
+                </div>
             </div>
         );
     }

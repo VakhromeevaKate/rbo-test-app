@@ -132,7 +132,6 @@ class ProductTable extends React.Component {
     }
 
     handleShowDetails(value, id){
-      console.log(id);
       this.setState({
           showDetails: value,
           productId: id
