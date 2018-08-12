@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import FilterableProductTable from './components/FilterableProductTable';
+import GetDataFromCSV from './utils/GetDataFromCSV';
 
-const header = ['Mark','Model','Type','Year'];
+let data = new GetDataFromCSV();
 
 const PRODUCTS = [
   {Id: '1', Mark: 'Ford', Model: "Focus III", Type: "Hatchback", Year: 2014, Color: "Black", Options: "Cruise, LED", Country: "USA"},
