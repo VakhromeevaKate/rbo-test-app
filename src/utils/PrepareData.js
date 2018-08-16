@@ -1,6 +1,5 @@
 
 export default function PrepareData(autos, attributes, colors, countries, options){
-    let result = [];
     autos=prepareDataAuto(autos);
     autos.forEach(auto => {
         countries.forEach(country => {
@@ -15,21 +14,19 @@ export default function PrepareData(autos, attributes, colors, countries, option
         });
         options.forEach(option => {
             if (option.ID.indexOf(auto.Id) !== -1) {
-                auto.Options += option.Attribute + ';';
+                auto.OptionsId += option.Attribute + ';';
             };
         });
         attributes.forEach(attribute => {
             if (attribute.ID === auto.ColorId) {
                 auto.Color = attribute.Description;
             }; 
-            if (attribute.ID === auto.ColorId) {
-                auto.Color = attribute.Description;
+            if (auto.OptionsId.indexOf(attribute.ID) !== -1) {
+                auto.Options += attribute.Description + ';';
             }
         })
     });
-    console.log([autos]);
-    result = autos;
-    return result;
+    return autos;
 }
 
 function prepareDataAuto(data){
@@ -50,10 +47,10 @@ function prepareDataAuto(data){
                     'Type': buffer[buffer.length - 3],
                     'Model': model,
                     'Country': null,
-                    'Options': '',
                     'Color': '',
                     'ColorId': null,
-                    'OptionsId': null
+                    'Options': '',
+                    'OptionsId': ''
                 });
         }
     } 
