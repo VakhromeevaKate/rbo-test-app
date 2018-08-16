@@ -7,7 +7,6 @@ class CommonProducts extends React.Component {
         let common = [];
         if (this.props.productId !== null && this.props.productRowId){ 
             product = this.props.products[this.props.productRowId];
-            console.log(product);
             this.props.products.forEach((entity) => {
                 if ( entity.Id !== this.props.productId &&
             
@@ -23,7 +22,6 @@ class CommonProducts extends React.Component {
                     common.push(<CommonProductRow showDetails={this.handleShowDetails} product={entity} key={entity.Id} />);
                 }
             });
-            console.log(common);
         }
         if (common.length > 0){
             return (
