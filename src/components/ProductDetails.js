@@ -5,15 +5,18 @@ class ProductDetails extends React.Component {
     render () {
         let product;
         let common = [];
+        let index = 0;
         if (this.props.productId !== null){
-            product = this.props.products[this.props.productId-1];
+            product = this.props.products[index];
+            
             this.props.products.forEach((entity) => {
-                if ((entity.Color.toUpperCase()  === product.Color.toUpperCase() &&
+                if ((entity.Id !== this.props.productId) && (
+                    (entity.Color.toUpperCase()  === product.Color.toUpperCase() &&
                     entity.Type.toUpperCase() === product.Type.toUpperCase()) ||
                     (entity.Options.toUpperCase().indexOf(product.Options.toUpperCase()) !== -1 &&
                     entity.Type.toUpperCase() === product.Type.toUpperCase()) || 
                     (entity.Type.toUpperCase() === product.Type.toUpperCase() && 
-                    entity.Options.toUpperCase().indexOf(product.Options.toUpperCase() !== -1))){
+                    entity.Options.toUpperCase().indexOf(product.Options.toUpperCase() !== -1)))) {
                     common.push(<CommonProducts showDetails={this.handleShowDetails} product={entity} key={entity.Id} />);
                 }
             });

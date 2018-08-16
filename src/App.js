@@ -96,6 +96,7 @@ class App extends Component {
   }
 
   render() {
+    let data = PrepareData(this.state.autos, this.state.attributes, this.state.colors, this.state.countries, this.state.options);
     return (
       <div className="App">
         <header className="App-header">
@@ -104,7 +105,7 @@ class App extends Component {
         </header>
         <h3>Searching for a car?</h3>
         <FilterableProductTable 
-        products={PrepareData(this.state.autos, this.state.attributes, this.state.colors, this.state.countries, this.state.options)} 
+        products={data} 
         ready={this.state.ready} />
       </div>
     );

@@ -8,8 +8,18 @@ export default function PrepareData(autos, attributes, colors, countries, option
                 auto.Country = country.Description;
             };
         });
+        colors.forEach(color => {
+            if (color.Attribute.indexOf(auto.Id) !== -1) {
+                auto.ColorId = color.ID;
+            };
+        });
+        attributes.forEach(attribute => {
+            if (attribute.ID === auto.ColorId) {
+                auto.Color = attribute.Description;
+            }; 
+        })
     });
-    console.log([]);
+    console.log([autos]);
     result = autos;
     return result;
 }
@@ -32,7 +42,9 @@ function prepareDataAuto(data){
                     'Model': model,
                     'Country': null,
                     'Options': null,
-                    'Color': null
+                    'Color': '',
+                    'ColorId': null,
+                    'Options': ''
                 });
         }
     } 
