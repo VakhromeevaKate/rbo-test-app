@@ -23,6 +23,9 @@ class FilterableProductTable extends React.Component {
     }
 
     render() {
+        if (this.props.ready === false) {
+            return (<div><p>Data is loading...</p></div>)
+        };
         return (
             <div>
             <SearchBar 
