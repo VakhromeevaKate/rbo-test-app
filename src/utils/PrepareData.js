@@ -13,10 +13,18 @@ export default function PrepareData(autos, attributes, colors, countries, option
                 auto.ColorId = color.ID;
             };
         });
+        options.forEach(option => {
+            if (option.ID.indexOf(auto.Id) !== -1) {
+                auto.Options += option.Attribute + ';';
+            };
+        });
         attributes.forEach(attribute => {
             if (attribute.ID === auto.ColorId) {
                 auto.Color = attribute.Description;
             }; 
+            if (attribute.ID === auto.ColorId) {
+                auto.Color = attribute.Description;
+            }
         })
     });
     console.log([autos]);
@@ -34,6 +42,7 @@ function prepareDataAuto(data){
             model = buffer.slice(1, buffer.length - 3 ).join(' ');
             result.push(
                 {
+                    'Row': i,
                     'Id': data[i].ID, 
                     'Mark': buffer[0], 
                     'CountryISO': buffer[buffer.length - 1],
@@ -41,131 +50,12 @@ function prepareDataAuto(data){
                     'Type': buffer[buffer.length - 3],
                     'Model': model,
                     'Country': null,
-                    'Options': null,
+                    'Options': '',
                     'Color': '',
                     'ColorId': null,
-                    'Options': ''
+                    'OptionsId': null
                 });
         }
     } 
     return result;
 }
-function prepareDataAttributes(data){
-    let result=[];
-    if (data instanceof Array){
-        for(let i=0; i< data.length; i++){
-            result.push(
-                {
-                    'Id': data[i].ID, 
-                    'Attribute': data[i].Description
-                });
-        }
-    } 
-    return result;
-}
-/*function prepareDataColors(data, output){
-    let result=[];
-    if (data instanceof Array){
-        for(let i=0; i< data.length; i++){
-            result.push(
-                {
-                    'AttributeId': data[i].ID, 
-                    'Attribute': data[i].Attribute
-                });
-        }
-    } 
-    output = result;
-    return result;
-}
-function prepareDataCountries(data, output){
-    let result=[];
-    if (data instanceof Array){
-        for(let i=0; i< data.length; i++){
-            result.push(
-                {
-                    'ISO': data[i].ISO, 
-                    'Description': data[i].Description
-                });
-        }
-    } 
-    output = result;
-    return result;   
-}
-function prepareDataOptions(data, output){
-    let result=[];
-    if (data instanceof Array){
-        for(let i=0; i< data.length; i++){
-            result.push(
-                {
-                    'Attribute': data[i].Attribute, 
-                    'Id': data[i].ID
-                });
-        }
-    } 
-    output = result;
-    return result;   
-}
-
-
-function getAutosData(config,type, output)
-{
-    $.ajax({
-        url: autoDataset,
-        method: "get",
-        type: "text",
-        success:  function(data) {
-            type = loadingtask(data, config);
-            prepareDataAuto(type, output);
-        }
-    });
-}
-function getAttributesData(config,type, output)
-{
-    $.ajax({
-        url: attributesDataset,
-        method: "get",
-        type: "text",
-        success:  function(data) {
-            type = loadingtask(data, config);
-            
-            prepareDataAttributes(type, output);
-        }
-    });
-}
-function getColorsData(config,type, output)
-{
-    $.ajax({
-        url: colorsDataset,
-        method: "get",
-        type: "text",
-        success:  function(data) {
-            type = loadingtask(data, config);
-            prepareDataColors(type, output);
-        }
-    });
-}
-function getCountriesData(config,type, output)
-{
-    $.ajax({
-        url: countriesDataset,
-        method: "get",
-        type: "text",
-        success:  function(data) {
-            type = loadingtask(data, config);
-            prepareDataCountries(type, output);
-        }
-    });
-}
-function getOptionsData(config,type, output)
-{
-    $.ajax({
-        url: optionsDataset,
-        method: "get",
-        type: "text",
-        success:  function(data) {
-            type = loadingtask(data, config);
-            prepareDataOptions(type, output);
-        }
-    });
-}*/
-

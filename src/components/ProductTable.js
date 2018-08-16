@@ -8,7 +8,8 @@ class ProductTable extends React.Component {
     super(props);
     this.state = {
       showDetails: '',
-      productId: null
+      productId: null,
+      productRowId: null
     };
     this.handleShowDetails = this.handleShowDetails.bind(this);
   }
@@ -113,6 +114,7 @@ class ProductTable extends React.Component {
         <ProductDetails 
           showDetails={this.handleShowDetails} 
           productId={this.state.productId}
+          productRowId={this.state.productRowId}
           products={this.props.products}/>
       )
     }
@@ -131,10 +133,11 @@ class ProductTable extends React.Component {
       );
     }
 
-    handleShowDetails(value, id){
+    handleShowDetails(value, id, row){
       this.setState({
           showDetails: value,
-          productId: id
+          productId: id,
+          productRowId: row
       });
     }
   }

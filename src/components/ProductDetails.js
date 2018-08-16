@@ -5,13 +5,11 @@ class ProductDetails extends React.Component {
     render () {
         let product;
         let common = [];
-        let index = 0;
-        if (this.props.productId !== null){
-            product = this.props.products[index];
-            
+        if (this.props.productId !== null && this.props.productRowId){ 
+            product = this.props.products[this.props.productRowId];
             this.props.products.forEach((entity) => {
-                if ((entity.Id !== this.props.productId) && (
-                    (entity.Color.toUpperCase()  === product.Color.toUpperCase() &&
+                if ( entity.Id !== this.props.productId &&
+                    ((entity.Color.toUpperCase()  === product.Color.toUpperCase() &&
                     entity.Type.toUpperCase() === product.Type.toUpperCase()) ||
                     (entity.Options.toUpperCase().indexOf(product.Options.toUpperCase()) !== -1 &&
                     entity.Type.toUpperCase() === product.Type.toUpperCase()) || 
