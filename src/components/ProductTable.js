@@ -112,24 +112,10 @@ class ProductTable extends React.Component {
       this.sortByYear(rows);
   }
   if(this.props.groupByMark === true){
-    const grouped_rows = this.groupByMark(rows);
-    return(
-      <table className="Cars">
-        <thead className="Cars-header">
-        </thead>
-        <tbody className="Cars-body">{grouped_rows}</tbody>
-      </table>
-    );
+    rows = this.groupByMark(rows);
   }
   if(this.props.groupByType === true){
-    const grouped_rows = this.groupByType(rows);
-    return(
-      <table className="Cars">
-        <thead className="Cars-header">
-        </thead>
-        <tbody className="Cars-body">{grouped_rows}</tbody>
-      </table>
-    );
+    rows = this.groupByType(rows);
   }
   if (this.state.showDetails === true){
     return (
