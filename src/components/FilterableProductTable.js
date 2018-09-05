@@ -17,7 +17,7 @@ class FilterableProductTable extends React.PureComponent {
     }
 
     render() {
-        if (this.props.ready === false) {
+        if (!this.props.ready) {
             return (<div><p>Data is loading...</p></div>)
         };
         return (

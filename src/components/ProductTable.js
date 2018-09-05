@@ -100,22 +100,22 @@ class ProductTable extends React.PureComponent {
 
   render() {
   let rows = this.filter();
-  if(this.props.sortByMark === true){
+  if(this.props.sortByMark){
       this.sortByMark(rows);
   }
-  if(this.props.sortByType === true){
+  if(this.props.sortByType){
       this.sortByType(rows);
   }
-  if(this.props.sortByYear === true){
+  if(this.props.sortByYear){
       this.sortByYear(rows);
   }
-  if(this.props.groupByMark === true){
+  if(this.props.groupByMark){
     rows = this.groupByMark(rows);
   }
-  if(this.props.groupByType === true){
+  if(this.props.groupByType){
     rows = this.groupByType(rows);
   }
-  if (this.state.showDetails === true){
+  if (this.state.showDetails){
     return (
       <ProductDetails 
         showDetails={this.handleShowDetails} 
