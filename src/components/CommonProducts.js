@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import CommonProductRow from './CommonProductRow';
 
-class CommonProducts extends React.PureComponent { 
+class CommonProducts extends PureComponent { 
+    render() {
+        return (
+            <div>
+            <h2>You may also like: </h2>
+            <table className="Cars">
+                <thead className="Cars-header">
+                <tr>
+                    <th>Mark</th>
+                    <th>Model</th>
+                    <th>Type</th>
+                    <th>Country</th>
+                    <th>Color</th>
+                    <th>Options</th>
+                    <th>Year</th>
+                </tr>
+                </thead>
+                {this.renderCommon()}
+            </table>
+        </div>
+        );
+    }
+
     renderCommon() {
         let product;
         let common = [];
@@ -26,27 +48,8 @@ class CommonProducts extends React.PureComponent {
             )
         } return null;
     }
-    render() {
-        return (
-            <div>
-            <h2>You may also like: </h2>
-            <table className="Cars">
-                <thead className="Cars-header">
-                <tr>
-                    <th>Mark</th>
-                    <th>Model</th>
-                    <th>Type</th>
-                    <th>Country</th>
-                    <th>Color</th>
-                    <th>Options</th>
-                    <th>Year</th>
-                </tr>
-                </thead>
-                {this.renderCommon()}
-            </table>
-        </div>
-        );
-      }
-    }
+}
+
+    
     
   export default CommonProducts;

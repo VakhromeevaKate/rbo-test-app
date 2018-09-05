@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import FilterableProductTable from './components/FilterableProductTable';
@@ -10,7 +10,7 @@ import countriesDataset from './data-input/data-countries.csv';
 import optionsDataset from './data-input/data-options.csv';
 import PrepareData from './utils/PrepareData';
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props){
     super(props);
     this.state = {

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-class GroupedProductHeaderRow extends React.PureComponent {
+class GroupedProductHeaderRow extends PureComponent {
 
     render() {
         return (

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class ProductHeaderRow extends React.PureComponent {
+class ProductHeaderRow extends PureComponent {
     render() {
       return 
         <tr>

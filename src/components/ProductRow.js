@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-class ProductRow extends React.PureComponent { 
+class ProductRow extends PureComponent { 
   render() {
     return (
       <tr onClick={() => this.props.showDetails(true, this.props.product.Id, this.props.product.Row)}>

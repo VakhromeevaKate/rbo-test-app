@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import ProductRow from './ProductRow';
 import GroupedProductHeaderRow from './GroupedProductHeaderRow';
 import ProductDetails from './ProductDetails';
 
-class ProductTable extends React.PureComponent {
+class ProductTable extends PureComponent {
   constructor(props){
     super(props);
     this.state = {
@@ -11,6 +11,47 @@ class ProductTable extends React.PureComponent {
       productId: null,
       productRowId: null
     };
+  }
+  
+  render() {
+  let rows = this.filter();
+  if(this.props.sortByMark){
+      this.sortByMark(rows);
+  }
+  if(this.props.sortByType){
+      this.sortByType(rows);
+  }
+  if(this.props.sortByYear){
+      this.sortByYear(rows);
+  }
+  if(this.props.groupByMark){
+    rows = this.groupByMark(rows);
+  }
+  if(this.props.groupByType){
+    rows = this.groupByType(rows);
+  }
+  if (this.state.showDetails){
+    return (
+      <ProductDetails 
+        showDetails={this.handleShowDetails} 
+        productId={this.state.productId}
+        productRowId={this.state.productRowId}
+        products={this.props.products}/>
+    )
+  }
+    return (
+      <table className="Cars">
+        <thead className="Cars-header">
+          <tr>
+            <th>Mark</th>
+            <th>Model</th>
+            <th>Type</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody className="Cars-body">{rows}</tbody>
+      </table>
+    );
   }
 
   filter(){
@@ -96,47 +137,6 @@ class ProductTable extends React.PureComponent {
       } 
     }
     return grouped_rows;
-  }
-
-  render() {
-  let rows = this.filter();
-  if(this.props.sortByMark){
-      this.sortByMark(rows);
-  }
-  if(this.props.sortByType){
-      this.sortByType(rows);
-  }
-  if(this.props.sortByYear){
-      this.sortByYear(rows);
-  }
-  if(this.props.groupByMark){
-    rows = this.groupByMark(rows);
-  }
-  if(this.props.groupByType){
-    rows = this.groupByType(rows);
-  }
-  if (this.state.showDetails){
-    return (
-      <ProductDetails 
-        showDetails={this.handleShowDetails} 
-        productId={this.state.productId}
-        productRowId={this.state.productRowId}
-        products={this.props.products}/>
-    )
-  }
-    return (
-      <table className="Cars">
-        <thead className="Cars-header">
-          <tr>
-            <th>Mark</th>
-            <th>Model</th>
-            <th>Type</th>
-            <th>Year</th>
-          </tr>
-        </thead>
-        <tbody className="Cars-body">{rows}</tbody>
-      </table>
-    );
   }
 
   handleShowDetails = (value, id, row) => {

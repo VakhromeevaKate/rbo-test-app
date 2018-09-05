@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import CommonProducts from './CommonProducts';
 
-class ProductDetails extends React.PureComponent {
+class ProductDetails extends PureComponent {
     render () {
         let product;
         if (this.props.productId !== null){ 

@@ -1,27 +1,6 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-class SearchBar extends React.PureComponent {
-
-  handleChange = (event) => {
-    this.props.onUserInput(
-      event.target.value
-    );
-  }
-  handleClickGroupByMark = () => {
-    this.props.onGroupByMark();
-  }
-  handleClickGroupByType = () => {
-    this.props.onGroupByType();
-  }
-  handleClickSortByMark = () => {
-    this.props.onSortByMark();
-  }
-  handleClickSortByType = () => {
-    this.props.onSortByType();
-  }
-  handleClickSortByYear = () => {
-    this.props.onSortByYear();
-  }
+class SearchBar extends PureComponent {
   render() {
     return (
         <div className="SearchBar">
@@ -42,6 +21,26 @@ class SearchBar extends React.PureComponent {
             />
         </div>
     );
+  }
+  handleChange = (event) => {
+    this.props.onUserInput(
+      event.target.value
+    );
+  }
+  handleClickGroupByMark = () => {
+    this.props.onGroupByMark();
+  }
+  handleClickGroupByType = () => {
+    this.props.onGroupByType();
+  }
+  handleClickSortByMark = () => {
+    this.props.onSortByMark();
+  }
+  handleClickSortByType = () => {
+    this.props.onSortByType();
+  }
+  handleClickSortByYear = () => {
+    this.props.onSortByYear();
   }
 }
   
