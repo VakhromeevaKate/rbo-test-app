@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CommonProductRow extends React.Component { 
+class CommonProductRow extends React.PureComponent { 
   render() {
       return (
         <tr>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ProductHeaderRow extends React.Component {
+class ProductHeaderRow extends React.PureComponent {
     render() {
       return 
         <tr>

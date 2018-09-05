@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import ProductTable from './ProductTable';
 
-class FilterableProductTable extends React.Component {
+class FilterableProductTable extends React.PureComponent {
 
     constructor(props) {
         super(props);

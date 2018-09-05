@@ -1,6 +1,6 @@
 import React from 'react';
 
-class GroupedProductHeaderRow extends React.Component {
+class GroupedProductHeaderRow extends React.PureComponent {
 
     render() {
         return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import CommonProductRow from './CommonProductRow';
 
-class CommonProducts extends React.Component { 
+class CommonProducts extends React.PureComponent { 
     renderCommon() {
         let product;
         let common = [];

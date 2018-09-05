@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearchBar extends React.Component {
+class SearchBar extends React.PureComponent {
 
   handleChange = (event) => {
     this.props.onUserInput(
@@ -38,7 +38,6 @@ class SearchBar extends React.Component {
           </div>
           <input className="SearchBarInput" type="text" placeholder="Search..."
             value={this.props.filterText}
-            ref={(input) => this.filterTextInput = input}
             onChange={this.handleChange}
             />
         </div>

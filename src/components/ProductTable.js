@@ -3,7 +3,7 @@ import ProductRow from './ProductRow';
 import GroupedProductHeaderRow from './GroupedProductHeaderRow';
 import ProductDetails from './ProductDetails';
 
-class ProductTable extends React.Component {
+class ProductTable extends React.PureComponent {
   constructor(props){
     super(props);
     this.state = {
@@ -11,7 +11,6 @@ class ProductTable extends React.Component {
       productId: null,
       productRowId: null
     };
-    this.handleShowDetails = this.handleShowDetails.bind(this);
   }
 
   filter(){
