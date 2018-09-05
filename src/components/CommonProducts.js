@@ -38,13 +38,21 @@ class CommonProducts extends PureComponent {
                     (entity.Type.toUpperCase() === product.Type.toUpperCase() && 
                     entity.Options.toUpperCase() === product.Options.toUpperCase() ))
                 ) {
-                    common.push(<CommonProductRow showDetails={this.handleShowDetails} product={entity} key={entity.Id} />);
+                    common.push(entity);
                 }
             });
         }
         if (common.length > 0){
             return (
-                <tbody className="Cars-body">{common}</tbody>
+                <tbody className="Cars-body">{common.map((entity) => {
+                    return (
+                        <CommonProductRow 
+                            showDetails={this.handleShowDetails} 
+                            product={entity} 
+                            key={entity.Id} 
+                        />
+                    )
+                })}</tbody>
             )
         } return null;
     }
