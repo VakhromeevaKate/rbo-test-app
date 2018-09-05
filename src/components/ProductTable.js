@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import ProductRow from './ProductRow';
+import ProductHeaderRow from './ProductHeaderRow';
 import GroupedProductHeaderRow from './GroupedProductHeaderRow';
 import ProductDetails from './ProductDetails';
 
@@ -42,12 +43,7 @@ class ProductTable extends PureComponent {
     return (
       <table className="Cars">
         <thead className="Cars-header">
-          <tr>
-            <th>Mark</th>
-            <th>Model</th>
-            <th>Type</th>
-            <th>Year</th>
-          </tr>
+          <ProductHeaderRow mark="Mark" model="Model" type="Type" year="Year"/>
         </thead>
         <tbody className="Cars-body">{rows}</tbody>
       </table>
@@ -55,12 +51,13 @@ class ProductTable extends PureComponent {
   }
 
   filter(){
+    const { filterText, products } = this.props;
     let rows = [];
-    this.props.products.forEach((product) => {
-      if (product.Mark.toUpperCase().indexOf(this.props.filterText.toUpperCase()) === -1 &&
-          product.Model.toUpperCase().indexOf(this.props.filterText.toUpperCase()) === -1 &&
-          product.Type.toUpperCase().indexOf(this.props.filterText.toUpperCase()) === -1 &&
-          product.Year.toString().indexOf(this.props.filterText) === -1 ) {
+    products.forEach((product) => {
+      if (product.Mark.toUpperCase().indexOf(filterText.toUpperCase()) === -1 &&
+          product.Model.toUpperCase().indexOf(filterText.toUpperCase()) === -1 &&
+          product.Type.toUpperCase().indexOf(filterText.toUpperCase()) === -1 &&
+          product.Year.toString().indexOf(filterText) === -1 ) {
         return;
       }
       rows.push(<ProductRow showDetails={this.handleShowDetails} product={product} key={product.Id} />);

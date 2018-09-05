@@ -2,15 +2,16 @@ import React, { PureComponent } from 'react';
 
 class CommonProductRow extends PureComponent { 
   render() {
+    const { product } = this.props;
       return (
         <tr>
-          <td>{this.props.product.Mark}</td>
-          <td>{this.props.product.Model}</td>
-          <td>{this.props.product.Type}</td>
-          <td>{this.props.product.Country}</td>
-          <td>{this.props.product.Color}</td>
-          <td>{this.props.product.Options}</td>
-          <td>{this.props.product.Year}</td>
+          <td>{product.Mark}</td>
+          <td>{product.Model}</td>
+          <td>{product.Type}</td>
+          <td>{product.Country}</td>
+          <td>{product.Color}</td>
+          <td>{product.Options}</td>
+          <td>{product.Year}</td>
         </tr>
       );
     }
