@@ -14,12 +14,6 @@ class FilterableProductTable extends React.PureComponent {
           groupByMark: '',
           groupByType: ''
         };
-        this.handleUserInput = this.handleUserInput.bind(this);
-        this.handleSortByMark = this.handleSortByMark.bind(this);
-        this.handleSortByType = this.handleSortByType.bind(this);
-        this.handleSortByYear = this.handleSortByYear.bind(this);
-        this.handleGroupByMark = this.handleGroupByMark.bind(this);
-        this.handleGroupByType = this.handleGroupByType.bind(this);
     }
 
     render() {
@@ -47,12 +41,12 @@ class FilterableProductTable extends React.PureComponent {
             </div>
         );
     }
-    handleUserInput(filterText) {
+    handleUserInput = (filterText) => {
         this.setState({
           filterText: filterText
         });
     }
-    handleGroupByMark(){
+    handleGroupByMark = () => {
         this.setState({
             groupByMark: true,
             groupByType: false,
@@ -62,7 +56,7 @@ class FilterableProductTable extends React.PureComponent {
             showDetails: false
         });
     }
-    handleGroupByType(){
+    handleGroupByType = () => {
         this.setState({
             groupByMark: false,
             groupByType: true,
@@ -72,7 +66,7 @@ class FilterableProductTable extends React.PureComponent {
             showDetails: false
         });
     }
-    handleSortByMark(){
+    handleSortByMark = () => {
         this.setState({
             groupByMark: false,
             groupByType: false,
@@ -82,7 +76,7 @@ class FilterableProductTable extends React.PureComponent {
             showDetails: false
         });
     }
-    handleSortByType(){
+    handleSortByType = () => {
         this.setState({
             groupByMark: false,
             groupByType: false,
@@ -92,7 +86,7 @@ class FilterableProductTable extends React.PureComponent {
             showDetails: false
         });
     }
-    handleSortByYear(){
+    handleSortByYear = () => {
         this.setState({
             groupByMark: false,
             groupByType: false,
