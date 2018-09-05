@@ -8,7 +8,6 @@ import attributesDataset from './data-input/data-attributes.csv';
 import colorsDataset from './data-input/data-colors.csv';
 import countriesDataset from './data-input/data-countries.csv';
 import optionsDataset from './data-input/data-options.csv';
-import $ from "jquery";
 import PrepareData from './utils/PrepareData';
 
 class App extends Component {
@@ -33,65 +32,50 @@ class App extends Component {
     }  
     let _this = this;
     let counter = 0;
-    $.ajax({
-      url: autoDataset,
-      method: "get",
-      type: "text",
-      success:  function(data) {
-        console.log(data)
-        _this.setState({autos: Papa.parse(data, config).data});
-        counter ++;
-        if (counter === 5) _this.setState({ready: true});
-      }
-    });
-    /*fetch(autoDataset)
+   
+    fetch(autoDataset)
     .then(function(data) {
-        //_this.setState({autos: Papa.parse(data, config).data});
-        counter ++;
-        if (counter === 5) _this.setState({ready: true});
-        return data.text()
-    })
-    .catch();
-    */
-    $.ajax({
-      url: attributesDataset,
-      method: "get",
-      type: "text",
-      success:  function(data) {
+        return data.ok ? data.text() : Promise.reject(data.status);
+    }).then(function(data){
+      _this.setState({autos: Papa.parse(data, config).data}); 
+      counter ++;
+      if (counter === 5) _this.setState({ready: true}); 
+    });
+
+    fetch(attributesDataset)
+    .then(function(data) {
+        return data.ok ? data.text() : Promise.reject(data.status);
+    }).then(function(data) {
         _this.setState({attributes: Papa.parse(data, config).data});
         counter ++;
         if (counter === 5) _this.setState({ready: true});
-      }
     });
-    $.ajax({
-      url: colorsDataset,
-      method: "get",
-      type: "text",
-      success:  function(data) {
+
+    fetch(colorsDataset)
+    .then(function(data) {
+        return data.ok ? data.text() : Promise.reject(data.status);
+    }).then(function(data) {
         _this.setState({colors: Papa.parse(data, config).data});
         counter ++;
         if (counter === 5) _this.setState({ready: true});
-      }
     });
-    $.ajax({
-      url: countriesDataset,
-      method: "get",
-      type: "text",
-      success:  function(data) {
+
+    fetch(countriesDataset)
+    .then(function(data) {
+        return data.ok ? data.text() : Promise.reject(data.status);
+    }).then(function(data) {
         _this.setState({countries: Papa.parse(data, config).data});
         counter ++;
         if (counter === 5) _this.setState({ready: true});
-      }
     });
-    $.ajax({
-      url: optionsDataset,
-      method: "get",
-      type: "text",
-      success:  function(data) {
+
+    fetch(optionsDataset)
+    .then(function(data) {
+        return data.ok ? data.text() : Promise.reject(data.status);
+    }).then(function(data) {
         _this.setState({options: Papa.parse(data, config).data});
         counter ++;
         if (counter === 5) _this.setState({ready: true});
-      }
     });
   }
 
