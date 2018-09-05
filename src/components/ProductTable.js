@@ -104,7 +104,7 @@ class ProductTable extends PureComponent {
     let grouped_rows = [];
     for (let i = 0; i < rows.length; i++){
       if (i === 0){        
-        let header = {Id: null, Mark: null, Type: null, Year: null, className: "GroupHeader"};  
+        let header = {Id: null, Mark: null, className: "GroupHeader"};  
         header.Id = rows.length + i + 1;
         header.Mark = rows[i].Mark;
         grouped_rows.push(header);
@@ -112,7 +112,7 @@ class ProductTable extends PureComponent {
       } else if (
         rows[i].Mark !== rows[i-1].Mark
         ){
-          let header = {Id: null, Mark: null, Type: null, Year: null, className: "GroupHeader"}; 
+          let header = {Id: null, Mark: null, className: "GroupHeader"}; 
         header.Id = rows.length + i + 1;
         header.Mark = rows[i].Mark;
         grouped_rows.push(header);
@@ -129,13 +129,13 @@ class ProductTable extends PureComponent {
     this.sortByType(rows);
     for (let i = 0; i < rows.length; i++){
       if (i === 0){  
-        let header = {Id: null, Mark: null, Type: null, Year: null, className: "GroupHeader"};        
+        let header = {Id: null, Type: null, className: "GroupHeader"};        
         header.Id = rows.length + i + 1;
         header.Type = rows[i].Type;
         grouped_rows.push(header);
         grouped_rows.push(rows[i]);
       } else if (rows[i].Type !== rows[i-1].Type){
-        let header = {Id: null, Mark: null, Type: null, Year: null, className: "GroupHeader"};
+        let header = {Id: null, Type: null, className: "GroupHeader"};
         header.Id = rows.length + i + 1;
         header.Type = rows[i].Type; 
         grouped_rows.push(header);
