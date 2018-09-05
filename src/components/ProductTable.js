@@ -139,7 +139,7 @@ class ProductTable extends React.PureComponent {
     );
   }
 
-  handleShowDetails(value, id, row){
+  handleShowDetails = (value, id, row) => {
     this.setState({
         showDetails: value,
         productId: id,

@@ -38,11 +38,21 @@ class App extends Component {
       method: "get",
       type: "text",
       success:  function(data) {
+        console.log(data)
         _this.setState({autos: Papa.parse(data, config).data});
         counter ++;
         if (counter === 5) _this.setState({ready: true});
       }
     });
+    /*fetch(autoDataset)
+    .then(function(data) {
+        //_this.setState({autos: Papa.parse(data, config).data});
+        counter ++;
+        if (counter === 5) _this.setState({ready: true});
+        return data.text()
+    })
+    .catch();
+    */
     $.ajax({
       url: attributesDataset,
       method: "get",
