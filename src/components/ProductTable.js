@@ -45,7 +45,16 @@ class ProductTable extends PureComponent {
         <thead className="Cars-header">
           <ProductHeaderRow mark="Mark" model="Model" type="Type" year="Year"/>
         </thead>
-        <tbody className="Cars-body">{rows}</tbody>
+        <tbody className="Cars-body">{rows.map(row => {
+          if(row.className){
+            return <GroupedProductHeaderRow product={row} key={row.Id}/>
+          }
+          return (<ProductRow 
+            showDetails={this.handleShowDetails} 
+            product={row} 
+            key={row.Id}
+            />)})}
+        </tbody>
       </table>
     );
   }
@@ -60,15 +69,15 @@ class ProductTable extends PureComponent {
           product.Year.toString().indexOf(filterText) === -1 ) {
         return;
       }
-      rows.push(<ProductRow showDetails={this.handleShowDetails} product={product} key={product.Id} />);
+      rows.push(product);
     });
     return rows;
   }
   // These fields are string typed. Is there any elegant way to compare them?
   sortByMark(rows) {
     rows.sort(function(a, b){
-      if(a.props.product.Mark < b.props.product.Mark) return -1;
-      if(a.props.product.Mark > b.props.product.Mark) return 1;
+      if(a.Mark < b.Mark) return -1;
+      if(a.Mark > b.Mark) return 1;
       return 0;
     }); 
     return rows;
@@ -76,8 +85,8 @@ class ProductTable extends PureComponent {
 
   sortByType(rows) {
     rows.sort(function(a, b){
-      if(a.props.product.Type < b.props.product.Type) return -1;
-      if(a.props.product.Type > b.props.product.Type) return 1;
+      if(a.Type < b.Type) return -1;
+      if(a.Type > b.Type) return 1;
       return 0;
     }); 
     return rows;
@@ -85,7 +94,7 @@ class ProductTable extends PureComponent {
 
   sortByYear(rows) {
     rows.sort(function(a, b){
-      return (a.props.product.Year - b.props.product.Year);
+      return (a.Year - b.Year);
     });
     return rows;
   }
@@ -95,21 +104,23 @@ class ProductTable extends PureComponent {
     let grouped_rows = [];
     for (let i = 0; i < rows.length; i++){
       if (i === 0){        
-        let header = {Id: null, Mark: null, Type: null, Year: null};  
+        let header = {Id: null, Mark: null, Type: null, Year: null, className: "GroupHeader"};  
         header.Id = rows.length + i + 1;
-        header.Mark = rows[i].props.product.Mark;
-        grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
+        header.Mark = rows[i].Mark;
+        grouped_rows.push(header);
         grouped_rows.push(rows[i]);
-      } else if (rows[i].props.product.Mark !== rows[i-1].props.product.Mark){
-        let header = {Id: null, Mark: null, Type: null, Year: null}; 
+      } else if (
+        rows[i].Mark !== rows[i-1].Mark
+        ){
+          let header = {Id: null, Mark: null, Type: null, Year: null, className: "GroupHeader"}; 
         header.Id = rows.length + i + 1;
-        header.Mark = rows[i].props.product.Mark; 
-        grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
+        header.Mark = rows[i].Mark;
+        grouped_rows.push(header);
         grouped_rows.push(rows[i]);
       } else {
         grouped_rows.push(rows[i]);
       } 
-    }
+    } 
     return grouped_rows;
   }
 
@@ -118,16 +129,16 @@ class ProductTable extends PureComponent {
     this.sortByType(rows);
     for (let i = 0; i < rows.length; i++){
       if (i === 0){  
-        let header = {Id: null, Mark: null, Type: null, Year: null};        
+        let header = {Id: null, Mark: null, Type: null, Year: null, className: "GroupHeader"};        
         header.Id = rows.length + i + 1;
-        header.Type = rows[i].props.product.Type;
-        grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
+        header.Type = rows[i].Type;
+        grouped_rows.push(header);
         grouped_rows.push(rows[i]);
-      } else if (rows[i].props.product.Type !== rows[i-1].props.product.Type){
-        let header = {Id: null, Mark: null, Type: null, Year: null};
+      } else if (rows[i].Type !== rows[i-1].Type){
+        let header = {Id: null, Mark: null, Type: null, Year: null, className: "GroupHeader"};
         header.Id = rows.length + i + 1;
-        header.Type = rows[i].props.product.Type; 
-        grouped_rows.push(<GroupedProductHeaderRow product={header} key={header.Id}/>);
+        header.Type = rows[i].Type; 
+        grouped_rows.push(header);
         grouped_rows.push(rows[i]);
       } else {
         grouped_rows.push(rows[i]);
