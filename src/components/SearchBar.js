@@ -1,70 +1,50 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClickGroupByMark = this.handleClickGroupByMark.bind(this);
-    this.handleClickGroupByType = this.handleClickGroupByType.bind(this);
-    this.handleClickSortByMark = this.handleClickSortByMark.bind(this);
-    this.handleClickSortByType = this.handleClickSortByType.bind(this);
-    this.handleClickSortByYear = this.handleClickSortByYear.bind(this);
-  }
 
-  handleChange() {
+  handleChange = (event) => {
     this.props.onUserInput(
-      this.filterTextInput.value
+      event.target.value
     );
   }
-  handleClickGroupByMark() {
-    this.props.onGroupByMark(
-      this.props.onGroupByMark
-    );
+  handleClickGroupByMark = () => {
+    this.props.onGroupByMark();
   }
-  handleClickGroupByType() {
-    this.props.onGroupByType(
-      this.props.onGroupByType
-    );
+  handleClickGroupByType = () => {
+    this.props.onGroupByType();
   }
-  handleClickSortByMark() {
-    this.props.onSortByMark(
-      this.props.onSortByMark
-    );
+  handleClickSortByMark = () => {
+    this.props.onSortByMark();
   }
-  handleClickSortByType() {
-    this.props.onSortByType(
-      this.props.onSortByType
-    );
+  handleClickSortByType = () => {
+    this.props.onSortByType();
   }
-  handleClickSortByYear() {
-    this.props.onSortByYear(
-      this.props.onSortByYear
-    );
+  handleClickSortByYear = () => {
+    this.props.onSortByYear();
   }
-    render() {
-      return (
-          <div className="SearchBar">
-            <div>
-              <label>Group By: </label>
-              <button className="SearchBarButton" onClick={this.handleClickGroupByMark}>Mark</button>
-              <button className="SearchBarButton" onClick={this.handleClickGroupByType}>Type</button>
-            </div>
-            <div>
-              <label>Sort By: </label>
-              <button className="SearchBarButton" onClick={this.handleClickSortByMark}>Mark</button>
-              <button className="SearchBarButton" onClick={this.handleClickSortByType}>Type</button>
-              <button className="SearchBarButton" onClick={this.handleClickSortByYear}>Year</button>
-            </div>
-            <input className="SearchBarInput" type="text" placeholder="Search..."
-              value={this.props.filterText}
-              ref={(input) => this.filterTextInput = input}
-              onChange={this.handleChange}
-              />
+  render() {
+    return (
+        <div className="SearchBar">
+          <div>
+            <label>Group By: </label>
+            <button className="SearchBarButton" onClick={this.handleClickGroupByMark}>Mark</button>
+            <button className="SearchBarButton" onClick={this.handleClickGroupByType}>Type</button>
           </div>
-      );
-    };
+          <div>
+            <label>Sort By: </label>
+            <button className="SearchBarButton" onClick={this.handleClickSortByMark}>Mark</button>
+            <button className="SearchBarButton" onClick={this.handleClickSortByType}>Type</button>
+            <button className="SearchBarButton" onClick={this.handleClickSortByYear}>Year</button>
+          </div>
+          <input className="SearchBarInput" type="text" placeholder="Search..."
+            value={this.props.filterText}
+            ref={(input) => this.filterTextInput = input}
+            onChange={this.handleChange}
+            />
+        </div>
+    );
   }
+}
   
-  export default SearchBar;
+export default SearchBar;
   

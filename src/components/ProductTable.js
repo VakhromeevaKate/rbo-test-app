@@ -27,7 +27,7 @@ class ProductTable extends React.Component {
     });
     return rows;
   }
-
+  // These fields are string typed. Is there any elegant way to compare them?
   sortByMark(rows) {
     rows.sort(function(a, b){
       if(a.props.product.Mark < b.props.product.Mark) return -1;
@@ -45,11 +45,10 @@ class ProductTable extends React.Component {
     }); 
     return rows;
   }
+
   sortByYear(rows) {
     rows.sort(function(a, b){
-      if(a.props.product.Year < b.props.product.Year) return -1;
-      if(a.props.product.Year > b.props.product.Year) return 1;
-      return 0;
+      return (a.props.product.Year - b.props.product.Year);
     });
     return rows;
   }
