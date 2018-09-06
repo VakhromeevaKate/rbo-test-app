@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
-import FilterableProductTable from './components/FilterableProductTable';
+import FilterableProductTable from './FilterableProductTable';
 import Papa from 'papaparse';
-import autoDataset from './data-input/data-auto.csv';
-import attributesDataset from './data-input/data-attributes.csv';
-import colorsDataset from './data-input/data-colors.csv';
-import countriesDataset from './data-input/data-countries.csv';
-import optionsDataset from './data-input/data-options.csv';
-import PrepareData from './utils/PrepareData';
+import autoDataset from '../data-input/data-auto.csv';
+import attributesDataset from '../data-input/data-attributes.csv';
+import colorsDataset from '../data-input/data-colors.csv';
+import countriesDataset from '../data-input/data-countries.csv';
+import optionsDataset from '../data-input/data-options.csv';
+import PrepareData from '../utils/PrepareData';
 
 class App extends PureComponent {
   constructor(props){
