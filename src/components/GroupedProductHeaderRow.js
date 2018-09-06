@@ -1,16 +1,13 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-class GroupedProductHeaderRow extends PureComponent {
-
-    render() {
-        return (
-            <tr> 
-                <th className="GroupHeader" colSpan={4}>
-                    {this.props.product.Type === null ? this.props.product.Mark : this.props.product.Type}
-                </th>
-            </tr>   
-        );
-    }
+const GroupedProductHeaderRow = (props) => {
+    return (
+        <tr>
+            <th className="GroupHeader" colSpan={4}>
+                {props.product.Type === null ? props.product.Mark : props.product.Type}
+            </th>
+        </tr>
+    );
 }
 
 export default GroupedProductHeaderRow; 

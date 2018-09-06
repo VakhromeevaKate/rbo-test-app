@@ -1,14 +1,13 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-export default class ProductHeaderRow extends PureComponent {
-    render() {
-        return (
-            <tr>
-                <th>{this.props.mark}</th>
-                <th>{this.props.model}</th>
-                <th>{this.props.type}</th>
-                <th>{this.props.year}</th>
-            </tr>
-        );
-    }
+const ProductHeaderRow = (props) => {
+    return (
+        <tr>
+            <th>{props.mark}</th>
+            <th>{props.model}</th>
+            <th>{props.type}</th>
+            <th>{props.year}</th>
+        </tr>
+    );
 }
+export default ProductHeaderRow;

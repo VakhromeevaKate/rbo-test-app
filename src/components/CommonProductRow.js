@@ -1,8 +1,7 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-class CommonProductRow extends PureComponent { 
-  render() {
-    const { product } = this.props;
+const CommonProductRow = (props) => { 
+    const { product } = props;
       return (
         <tr>
           <td>{product.Mark}</td>
@@ -14,7 +13,6 @@ class CommonProductRow extends PureComponent {
           <td>{product.Year}</td>
         </tr>
       );
-    }
   }
   
 export default CommonProductRow;
