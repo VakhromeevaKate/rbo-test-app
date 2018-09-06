@@ -9,11 +9,6 @@ import App from './components/App';
 import { fetchAutos } from './actions';
 import registerServiceWorker from './registerServiceWorker';
 
-/* eslint-disable no-underscore-dangle */
-const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
-const devtoolMiddleware = ext && ext();
-/* eslint-enable */
-
 const store = createStore(
     reducer,
     compose(

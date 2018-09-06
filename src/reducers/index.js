@@ -31,7 +31,6 @@ export default function reducer (state = initialState) {
         default: 
             return 'UNKNOWN';
     }
-    return state;
 }
 
   
