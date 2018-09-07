@@ -2,7 +2,6 @@ import { keyBy } from 'lodash';
 import { combineReducers } from 'redux';
 import { handleActions } from 'redux-actions';
 import * as action from '../actions';
-import { stat } from 'fs';
 
 const initialState = {loaded: false};
 

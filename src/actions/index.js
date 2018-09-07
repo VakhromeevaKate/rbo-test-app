@@ -21,14 +21,14 @@ export const fetchAutosFailure = createAction('AUTOS_FETCH_FAILURE');
 export const fetchAutos = () => async (dispatch) => {
   dispatch(fetchAutosRequest());
   try {
-    const response = fetch(autoDataset)
+    let response = fetch(autoDataset)
     .then(function(data) {
         return data.ok ? data.text() : Promise.reject(data.status);
     }).then(function(data){
       data = Papa.parse(data, config).data;
       return data;
     }).then(function(data){
-      dispatch(fetchAutosSuccess({ autos: data }));
+      dispatch(fetchAutosSuccess({ autos: response.data }));
       console.log(data);
       });
   } catch (e) {
