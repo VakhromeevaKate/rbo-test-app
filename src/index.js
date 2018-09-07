@@ -21,7 +21,6 @@ store.dispatch(fetchAttributes());
 store.dispatch(fetchColors());
 store.dispatch(fetchCountries());
 store.dispatch(fetchOptions());
-  
 
 ReactDOM.render(
     <Provider store={store}>
