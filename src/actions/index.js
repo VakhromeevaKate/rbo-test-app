@@ -29,7 +29,6 @@ export const fetchAutos = () => async (dispatch) => {
       return data;
     }).then(function(data){
       dispatch(fetchAutosSuccess({ autos: data }));
-      //console.log(data);
       });
   } catch (e) {
     dispatch(fetchAutosFailure());
@@ -52,7 +51,6 @@ export const fetchAttributes = () => async (dispatch) => {
       return data;
     }).then(function(data){
       dispatch(fetchAutosSuccess({ attributes: data }));
-      //console.log(data);
       }); 
   } catch (e) {
     dispatch(fetchAttributesFailure());
@@ -74,7 +72,6 @@ export const fetchColors = () => async (dispatch) => {
       return data;
     }).then(function(data){
       dispatch(fetchAutosSuccess({ colors: data }));
-      //console.log(data);
       }); 
   } catch (e) {
     dispatch(fetchColorsFailure());
@@ -96,7 +93,6 @@ export const fetchCountries = () => async (dispatch) => {
       return data;
     }).then(function(data){
       dispatch(fetchCountriesSuccess({ countries: data }));
-      //console.log(data);
       }); 
   } catch (e) {
     dispatch(fetchCountriesFailure());
@@ -118,7 +114,6 @@ export const fetchOptions = () => async (dispatch) => {
       return data;
     }).then(function(data){
       dispatch(fetchCountriesSuccess({ options: data }));
-      //console.log(data);
       }); 
   } catch (e) {
     dispatch(fetchOptionsFailure());
