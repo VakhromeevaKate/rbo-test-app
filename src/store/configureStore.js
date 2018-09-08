@@ -10,11 +10,11 @@ export default function configureStore(){
     const initialState =  {
         data: {
             ready: false,
-            autos: null,
-            attributes: null,
-            colors: null,
-            countries: null,
-            options: null
+            autos: [],
+            attributes: [],
+            colors: [],
+            countries: [],
+            options: []
         }
     }
 
