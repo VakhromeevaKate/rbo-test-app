@@ -50,7 +50,7 @@ export const fetchAttributes = () => async (dispatch) => {
       data = Papa.parse(data, config).data;
       return data;
     }).then(function(data){
-      dispatch(fetchAutosSuccess({ attributes: data }));
+      dispatch(fetchAttributesSuccess({ attributes: data }));
       }); 
   } catch (e) {
     dispatch(fetchAttributesFailure());
@@ -71,7 +71,7 @@ export const fetchColors = () => async (dispatch) => {
       data = Papa.parse(data, config).data;
       return data;
     }).then(function(data){
-      dispatch(fetchAutosSuccess({ colors: data }));
+      dispatch(fetchColorsSuccess({ colors: data }));
       }); 
   } catch (e) {
     dispatch(fetchColorsFailure());
@@ -113,7 +113,7 @@ export const fetchOptions = () => async (dispatch) => {
       data = Papa.parse(data, config).data;
       return data;
     }).then(function(data){
-      dispatch(fetchCountriesSuccess({ options: data }));
+      dispatch(fetchOptionsSuccess({ options: data }));
       }); 
   } catch (e) {
     dispatch(fetchOptionsFailure());
