@@ -6,8 +6,21 @@ const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
 const devtoolMiddleware = ext && ext();
 
 export default function configureStore(){
+
+    const initialState =  {
+        data: {
+            ready: false,
+            autos: null,
+            attributes: null,
+            colors: null,
+            countries: null,
+            options: null
+        }
+    }
+
     const store = createStore(
         reducer,
+        initialState,
         compose(
             applyMiddleware(thunk),
             devtoolMiddleware,

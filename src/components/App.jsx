@@ -97,6 +97,19 @@ class App extends PureComponent {
       </div>
     );
   }*/
+
+  state = {
+    ready: false
+  }
+
+  static getDerivedStateFromProps(nextProps, prevProps){
+    if (prevProps !== nextProps) {
+      console.log("props changed!")
+      console.log(nextProps.testState.data.ready)
+      return nextProps;
+    }
+  }
+
   render() {
     console.log(this.props.testState.data.ready);
     return (
@@ -106,7 +119,7 @@ class App extends PureComponent {
           <h1 className="App-title">RBO Test App</h1>
         </header>
         <h3>Searching for a car?</h3>
-        <div>ready={this.props.testState.data.ready}</div>
+        <div>ready={this.props.testState.data.ready.toString()}</div>
       </div>
     )
   }
