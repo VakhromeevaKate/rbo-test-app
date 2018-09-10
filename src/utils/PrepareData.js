@@ -34,7 +34,7 @@ function prepareDataAuto(data){
     let result=[];
     let buffer;
     let model;
-    //console.log(data) !!! data IS AN OBJECT! Not an array!
+    //console.log(data) //!!! data IS AN OBJECT! Not an array!
     if (data instanceof Array){
         for(let i=0; i< data.length; i++){
             buffer = data[i].Description.split(' ');
