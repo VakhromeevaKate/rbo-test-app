@@ -3,6 +3,7 @@ import ProductRow from './ProductRow';
 import ProductHeaderRow from './ProductHeaderRow';
 import GroupedProductHeaderRow from './GroupedProductHeaderRow';
 import ProductDetails from './ProductDetails';
+import CommonProducts from './CommonProducts';
 
 class ProductTable extends PureComponent {
   constructor(props){
@@ -37,7 +38,12 @@ class ProductTable extends PureComponent {
         showDetails={this.handleShowDetails} 
         productId={this.state.productId}
         productRowId={this.state.productRowId}
+        products={this.props.products}>
+        <CommonProducts 
+        productId={this.state.productId}
+        productRowId={this.state.productRowId}
         products={this.props.products}/>
+      </ProductDetails>
     )
   }
     return (
@@ -52,8 +58,7 @@ class ProductTable extends PureComponent {
           return (<ProductRow 
             showDetails={this.handleShowDetails} 
             product={row} 
-            key={row.Id}
-            />)})}
+            key={row.Id}/>)})}
         </tbody>
       </table>
     );

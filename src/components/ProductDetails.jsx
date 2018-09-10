@@ -1,5 +1,4 @@
 import React from 'react';
-import CommonProducts from './CommonProducts';
 
 const ProductDetails = (props) => {
     let product;
