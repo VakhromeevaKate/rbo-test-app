@@ -73,78 +73,40 @@ class ProductTable extends PureComponent {
     });
     return rows;
   }
-  // These fields are string typed. Is there any elegant way to compare them?
   sortByMark(rows) {
-    rows.sort(function(a, b){
-      if(a.Mark < b.Mark) return -1;
-      if(a.Mark > b.Mark) return 1;
-      return 0;
-    }); 
-    return rows;
+    return rows.sort((a, b) => (a.Mark > b.Mark ? 1 : (a.Mark === b.Mark ? 0 : -1 )) );
   }
 
   sortByType(rows) {
-    rows.sort(function(a, b){
-      if(a.Type < b.Type) return -1;
-      if(a.Type > b.Type) return 1;
-      return 0;
-    }); 
-    return rows;
+    return rows.sort((a, b) => (a.Type > b.Type ? 1 : (a.Type === b.Type ? 0 : -1 )) );
   }
 
   sortByYear(rows) {
-    rows.sort(function(a, b){
-      return (a.Year - b.Year);
-    });
-    return rows;
+    return rows.sort((a, b) => a.Year - b.Year);
   }
 
   groupByMark(rows){
     this.sortByMark(rows);
-    let grouped_rows = [];
-    for (let i = 0; i < rows.length; i++){
-      if (i === 0){        
-        let header = {Id: null, Mark: null, Type: null, className: "GroupHeader"};  
-        header.Id = rows.length + i + 1;
-        header.Mark = rows[i].Mark;
-        grouped_rows.push(header);
-        grouped_rows.push(rows[i]);
-      } else if (
-        rows[i].Mark !== rows[i-1].Mark
-        ){
-          let header = {Id: null, Mark: null, Type: null, className: "GroupHeader"}; 
-        header.Id = rows.length + i + 1;
-        header.Mark = rows[i].Mark;
-        grouped_rows.push(header);
-        grouped_rows.push(rows[i]);
-      } else {
-        grouped_rows.push(rows[i]);
-      } 
-    } 
-    return grouped_rows;
+    return rows.reduce((result, row, index) => {
+      if (index === 0 || row.Mark !== rows[index-1].Mark) {
+        let header = {Id: rows.length + index + 1, Mark: row.Mark, Type: null, className: "GroupHeader"};  
+        result.push(header);
+      }
+      result.push(row);
+      return result;
+    }, []);
   }
 
   groupByType(rows) {
-    let grouped_rows = [];
     this.sortByType(rows);
-    for (let i = 0; i < rows.length; i++){
-      if (i === 0){  
-        let header = {Id: null, Mark: null, Type: null, className: "GroupHeader"};        
-        header.Id = rows.length + i + 1;
-        header.Type = rows[i].Type;
-        grouped_rows.push(header);
-        grouped_rows.push(rows[i]);
-      } else if (rows[i].Type !== rows[i-1].Type){
-        let header = {Id: null, Mark: null,  Type: null, className: "GroupHeader"};
-        header.Id = rows.length + i + 1;
-        header.Type = rows[i].Type; 
-        grouped_rows.push(header);
-        grouped_rows.push(rows[i]);
-      } else {
-        grouped_rows.push(rows[i]);
-      } 
-    }
-    return grouped_rows;
+    return rows.reduce((result, row, index) => {
+      if (index === 0 || row.Type !== rows[index-1].Type) {
+        let header = {Id: rows.length + index + 1, Mark: null, Type: row.Type, className: "GroupHeader"};  
+        result.push(header);
+      }
+      result.push(row);
+      return result;
+    }, []);
   }
 
   handleShowDetails = (value, id, row) => {

@@ -3,6 +3,7 @@ import CommonProductRow from './CommonProductRow';
 
 class CommonProducts extends PureComponent {
     render() {
+        console.log( this.props );
         return (
             <div>
                 <h2>You may also like: </h2>
@@ -41,7 +42,7 @@ class CommonProducts extends PureComponent {
                     common.push(entity);
                 }
             });
-        }
+        }//{common.map(children)}
         if (common.length > 0) {
             return (
                 <tbody className="Cars-body">{common.map((entity) => {
@@ -52,6 +53,7 @@ class CommonProducts extends PureComponent {
                             key={entity.Id}
                         />
                     )
+                    console.log( this.props.children );
                 })}</tbody>
             )
         } return null;

@@ -40,10 +40,7 @@ const ProductDetails = (props) => {
                     </tr>
                 </tbody>
             </table>
-            <CommonProducts
-                products={props.products}
-                productId={props.productId}
-                productRowId={props.productRowId} />
+            {props.children}
         </div>
     );
 }
