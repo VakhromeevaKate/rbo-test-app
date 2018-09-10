@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.Cars {
+  vertical-align: middle;
+  margin: 0 5%;
+  width: 90%;
+  border: #ccc solid 1px;
+}
+.Cars tbody tr:nth-child(odd){ /* Задаем стили для нечетных рядов таблицы */
+	background: #fff;
+}
+.Cars tbody tr:nth-child(even){ /* Задаем стили для четных рядов таблицы */
+	background: #f2f6f8;
+}
+
+.Cars thead {
+  background: lightseagreen;
+}
+
+.GroupHeader {
+  background: lightseagreen;
+  text-align: left;
+}
+
+.SearchBar {
+  width: 90%;
+}
+
+.SearchBar div{
+  display: inline-block;
+  padding: 0 1em;
+}
+
+.SearchBarButton {
+  background-color: lightseagreen;
+  font-weight: bold;
+  font-size: 1em;
+  border: 2px solid #ccc;
+}
+
+.SearchBarInput {
+  border: 2px solid #ccc;
+  font-size: 1em;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
