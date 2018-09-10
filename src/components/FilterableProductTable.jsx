@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import SearchBar from './SearchBar';
+import SearchBar from '../search/SearchBar';
 import ProductTable from './ProductTable';
+import './FilterableProductTable.css';
 
 class FilterableProductTable extends PureComponent {
 
@@ -21,23 +22,29 @@ class FilterableProductTable extends PureComponent {
             return (<div><p>Data is loading...</p></div>)
         };
         return (
-            <div>
-            <SearchBar 
-                filterText={this.state.filterText}
-                onSortByMark={this.handleSortByMark}
-                onSortByType={this.handleSortByType}
-                onSortByYear={this.handleSortByYear}
-                onGroupByMark={this.handleGroupByMark}
-                onGroupByType={this.handleGroupByType}
-                onUserInput={this.handleUserInput}/>
-            <ProductTable 
-                products={this.props.products} 
-                filterText={this.state.filterText}
-                sortByMark={this.state.sortByMark}
-                sortByType={this.state.sortByType}
-                sortByYear={this.state.sortByYear}
-                groupByMark={this.state.groupByMark}
-                groupByType={this.state.groupByType}/>
+            <div className="App">
+                <header className="App-header">
+                <h1 className="App-title">RBO Test App</h1>
+                </header>
+                <h3>Searching for a car?</h3>
+                <div>
+                    <SearchBar 
+                        filterText={this.state.filterText}
+                        onSortByMark={this.handleSortByMark}
+                        onSortByType={this.handleSortByType}
+                        onSortByYear={this.handleSortByYear}
+                        onGroupByMark={this.handleGroupByMark}
+                        onGroupByType={this.handleGroupByType}
+                        onUserInput={this.handleUserInput}/>
+                    <ProductTable 
+                        products={this.props.products} 
+                        filterText={this.state.filterText}
+                        sortByMark={this.state.sortByMark}
+                        sortByType={this.state.sortByType}
+                        sortByYear={this.state.sortByYear}
+                        groupByMark={this.state.groupByMark}
+                        groupByType={this.state.groupByType}/>
+                </div>
             </div>
         );
     }

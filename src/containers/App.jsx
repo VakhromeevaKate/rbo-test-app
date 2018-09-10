@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import {connect} from 'react-redux';
-import logo from '../logo.svg';
-import './App.css';
-import FilterableProductTable from './FilterableProductTable';
+import FilterableProductTable from '../components/FilterableProductTable';
 import PrepareData from '../utils/PrepareData';
 
 class App extends PureComponent {
@@ -21,14 +19,9 @@ class App extends PureComponent {
   render() {
     let data = this.props.appState.data;
     let products = PrepareData(data.autos, data.attributes, data.colors, data.countries, data.options);
-    //console.log(products);
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">RBO Test App</h1>
-        </header>
-        <h3>Searching for a car?</h3>
+      <div>
         <FilterableProductTable 
         products={products} 
         ready={data.ready} />
