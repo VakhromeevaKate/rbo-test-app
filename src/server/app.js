@@ -1,11 +1,16 @@
 import express from 'express';
 import fs from 'fs';
+import { serverPort, dataPaths } from '../etc/config.json';
 
 const app = express();
 
+app.get('/',(req,res) => {
+    console.log(dataPaths);
+})
+
 app.get('/autos',(req,res) => {
     const autos = new Promise((resolve, reject) => {
-        fs.readFile('../src/data-input/data-auto.csv','utf8',(error, data) => {
+        fs.readFile(dataPaths.autos,'utf8',(error, data) => {
             if (error) return reject(error);
             console.log(data);
             return resolve(data);
@@ -17,7 +22,7 @@ app.get('/autos',(req,res) => {
 });
 app.get('/attributes',(req,res) => {
     const attributes = new Promise((resolve, reject) => {
-        fs.readFile('../src/data-input/data-attributes.csv','utf8',(error, data) => {
+        fs.readFile(dataPaths.attributes,'utf8',(error, data) => {
             if (error) return reject(error);
             console.log(data);
             return resolve(data);
@@ -29,7 +34,7 @@ app.get('/attributes',(req,res) => {
 });
 app.get('/colors',(req,res) => {
     const autos = new Promise((resolve, reject) => {
-        fs.readFile('../src/data-input/data-colors.csv','utf8',(error, data) => {
+        fs.readFile(dataPaths.colors,'utf8',(error, data) => {
             if (error) return reject(error);
             console.log(data);
             return resolve(data);
@@ -41,7 +46,7 @@ app.get('/colors',(req,res) => {
 });
 app.get('/countries',(req,res) => {
     const countries = new Promise((resolve, reject) => {
-        fs.readFile('../src/data-input/data-countries.csv','utf8',(error, data) => {
+        fs.readFile(dataPaths.countries,'utf8',(error, data) => {
             if (error) return reject(error);
             console.log(data);
             return resolve(data);
@@ -53,7 +58,7 @@ app.get('/countries',(req,res) => {
 });
 app.get('/options',(req,res) => {
     const options = new Promise((resolve, reject) => {
-        fs.readFile('../src/data-input/data-options.csv','utf8',(error, data) => {
+        fs.readFile(dataPaths.options,'utf8',(error, data) => {
             if (error) return reject(error);
             console.log(data);
             return resolve(data);
@@ -64,7 +69,7 @@ app.get('/options',(req,res) => {
         );
 });
 
-const server = app.listen(8080, () => {
-    console.log("Server is listening at port 8080")
+const server = app.listen(serverPort, () => {
+    console.log("Server is listening at port " + serverPort)
 });
  export default app;
