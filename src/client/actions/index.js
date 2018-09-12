@@ -1,19 +1,5 @@
 import { createAction } from 'redux-actions';
 import api from '../api/api';
-//import autoDataset from '../data-input/data-auto.csv';
-//import attributesDataset from '../data-input/data-attributes.csv';
-//import colorsDataset from '../data-input/data-colors.csv';
-//import countriesDataset from '../data-input/data-countries.csv';
-//import optionsDataset from '../data-input/data-options.csv';
-import Papa from 'papaparse';
-
-const config = {
-  delimiter: ',',
-  quoteChar: '"',
-  escapeChar: '"',
-  header: true,
-  trimHeaders: false
-} 
 
 export const fetchAutosRequest = createAction('AUTOS_FETCH_REQUEST');
 export const fetchAutosSuccess = createAction('AUTOS_FETCH_SUCCESS');
@@ -22,29 +8,15 @@ export const fetchAutosFailure = createAction('AUTOS_FETCH_FAILURE');
 export const fetchAutos = () => async (dispatch) => {
   dispatch(fetchAutosRequest());
   try {api.getAutos().then(function(data){
-    data = Papa.parse(data, config).data;
+    data = JSON.parse(data.request.response);
     return data;
   }).then(function(data){
-    dispatch(fetchAutosSuccess({ autos: data }));
+    dispatch(fetchAutosSuccess(data));
     });
   } catch (e) {
     dispatch(fetchAutosFailure());
   }
-  /*try {
-    fetch(autoDataset)
-    .then(function(data) {
-        return data.ok ? data.text() : Promise.reject(data.status);
-    }).then(function(data){
-      data = Papa.parse(data, config).data;
-      return data;
-    }).then(function(data){
-      dispatch(fetchAutosSuccess({ autos: data }));
-      });
-  } catch (e) {
-    dispatch(fetchAutosFailure());
-  }*/
 };
-
 
 export const fetchAttributesRequest = createAction('ATTRIBUTES_FETCH_REQUEST');
 export const fetchAttributesSuccess = createAction('ATTRIBUTES_FETCH_SUCCESS');
@@ -53,10 +25,10 @@ export const fetchAttributesFailure = createAction('ATTRIBUTES_FETCH_FAILURE');
 export const fetchAttributes = () => async (dispatch) => {
   dispatch(fetchAttributesRequest());
     try {api.getAttributes().then(function(data){
-      data = Papa.parse(data, config).data;
+      data = JSON.parse(data.request.response);
       return data;
     }).then(function(data){
-      dispatch(fetchAttributesSuccess({ attributes: data }));
+      dispatch(fetchAttributesSuccess(data));
       }); 
   } catch (e) {
     dispatch(fetchAttributesFailure());
@@ -70,10 +42,10 @@ export const fetchColorsFailure = createAction('COLORS_FETCH_FAILURE');
 export const fetchColors = () => async (dispatch) => {
   dispatch(fetchColorsRequest());
   try {api.getColors().then(function(data){
-    data = Papa.parse(data, config).data;
+    data = JSON.parse(data.request.response);
     return data;
   }).then(function(data){
-      dispatch(fetchColorsSuccess({ colors: data }));
+      dispatch(fetchColorsSuccess(data));
       }); 
   } catch (e) {
     dispatch(fetchColorsFailure());
@@ -87,13 +59,12 @@ export const fetchCountriesFailure = createAction('COUNTRIES_FETCH_FAILURE');
 export const fetchCountries = () => async (dispatch) => {
   dispatch(fetchCountriesRequest());
   try {api.getCountries().then(function(data){
-    data = Papa.parse(data, config).data;
+    data = JSON.parse(data.request.response);
     return data;
     }).then(function(data){
-      data = Papa.parse(data, config).data;
       return data;
     }).then(function(data){
-      dispatch(fetchCountriesSuccess({ countries: data }));
+      dispatch(fetchCountriesSuccess(data));
       }); 
   } catch (e) {
     dispatch(fetchCountriesFailure());
@@ -108,10 +79,10 @@ export const fetchOptions = () => async (dispatch) => {
   dispatch(fetchOptionsRequest());
   try {
     api.getOptions().then(function(data){
-      data = Papa.parse(data, config).data;
+      data = JSON.parse(data.request.response);
       return data;
       }).then(function(data){
-      dispatch(fetchOptionsSuccess({ options: data }));
+      dispatch(fetchOptionsSuccess(data));
       }); 
   } catch (e) {
     dispatch(fetchOptionsFailure());

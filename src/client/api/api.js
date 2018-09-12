@@ -1,34 +1,20 @@
 import { apiPrefix } from '../../etc/config.json';
+import axios from 'axios'
 
 export default {
     getAutos() {
-        fetch(`${apiPrefix}/autos`)
-        .then(function(data) {
-            return data.ok ? data.text() : Promise.reject(data.status);
-        })
+        return axios.get(`${apiPrefix}/autos`);
     },
     getAttributes() {
-        fetch(`${apiPrefix}/attributes`)
-        .then(function(data) {
-            return data.ok ? data.text() : Promise.reject(data.status);
-        })
+        return axios.get(`${apiPrefix}/attributes`);
     },
     getColors() {
-        fetch(`${apiPrefix}/colors`)
-        .then(function(data) {
-            return data.ok ? data.text() : Promise.reject(data.status);
-        })
+        return axios.get(`${apiPrefix}/colors`);
     },
     getCountries() {
-        fetch(`${apiPrefix}/countries`)
-        .then(function(data) {
-            return data.ok ? data.text() : Promise.reject(data.status);
-        })
+        return axios.get(`${apiPrefix}/countries`);
     },
     getOptions() {
-        fetch(`${apiPrefix}/options`)
-        .then(function(data) {
-            return data.ok ? data.text() : Promise.reject(data.status);
-        })
+        return axios.get(`${apiPrefix}/options`);
     }
 }
