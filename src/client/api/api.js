@@ -1,20 +1,20 @@
+import axios from 'axios';
 import { apiPrefix } from '../../etc/config.json';
-import axios from 'axios'
 
 export default {
-    getAutos() {
-        return axios.get(`${apiPrefix}/autos`);
-    },
-    getAttributes() {
-        return axios.get(`${apiPrefix}/attributes`);
-    },
-    getColors() {
-        return axios.get(`${apiPrefix}/colors`);
-    },
-    getCountries() {
-        return axios.get(`${apiPrefix}/countries`);
-    },
-    getOptions() {
-        return axios.get(`${apiPrefix}/options`);
-    }
-}
+  getAutos() {
+    return axios.get(`${apiPrefix}/api/autos/list`);
+  },
+  getAttributes() {
+    return axios.get(`${apiPrefix}/api/attributes/list`);
+  },
+  getColors() {
+    return axios.get(`${apiPrefix}/api/colors/list`);
+  },
+  getCountries() {
+    return axios.get(`${apiPrefix}/api/countries/list`);
+  },
+  getOptions() {
+    return axios.get(`${apiPrefix}/api/options/list`);
+  },
+};
