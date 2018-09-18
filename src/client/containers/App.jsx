@@ -14,7 +14,7 @@ class App extends PureComponent {
       countries: [],
       options: []
     }
-  };
+  }
 
   render() {
     let data = this.props.appState.data;
@@ -41,8 +41,4 @@ export default connect(
   state => ({
     appState: state
   }),
-  dispatch => ({
-
-  })  
-
 )(App);

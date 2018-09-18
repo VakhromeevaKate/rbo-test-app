@@ -122,4 +122,4 @@ class ProductTable extends PureComponent {
     });
   }
 }
-  export default ProductTable;
+export default ProductTable;

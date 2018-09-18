@@ -5,5 +5,3 @@ export const autosSelector = createSelector(
   getAutos,
   autos => Object.values(autos),
 );
-
-console.log("I AM LORD VOLDEMORT!")
