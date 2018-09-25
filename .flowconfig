@@ -1,0 +1,12 @@
+[ignore]
+./vscode/settings.json
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]

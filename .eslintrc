@@ -7,12 +7,16 @@
     "node": true
   },
   "parserOptions": {
-    "ecmaVersion": 8,
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "ecmaVersion": 2018,
     "sourceType": "module"
-  },
-  "plugins": [
-    "react"
-  ],
+},
+"plugins": [
+    "react",
+    "flowtype"
+],
   "rules": {
     "strict": 0,
 

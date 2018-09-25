@@ -15,6 +15,7 @@
     "jquery": "^3.3.1",
     "lodash": "^4.17.10",
     "papaparse": "^4.6.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-csv": "^1.0.14",
     "react-csv-reader": "^0.3.2",
@@ -29,11 +30,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "babel src/ -d lib/",
+    "prepublish": "yarn run build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
     "prettier-eslint": "^8.8.2"
   }
 }
