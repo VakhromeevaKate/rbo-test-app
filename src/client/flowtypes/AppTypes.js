@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 export type Props = {
     appState: {
         data: {
-            ready: boolean,
-            autos: Array<any>,
+            ready:      boolean,
+            autos:      Array<any>,
             attributes: Array<any>,
-            colors: Array<any>,
-            countries: Array<any>,
-            options: Array<any>
+            colors:     Array<any>,
+            countries:  Array<any>,
+            options:    Array<any>
         }
     }
 }
@@ -27,12 +27,12 @@ export type Auto = {
 }
 
 export type State = {
-    ready: boolean,
-    autos: Array<any>,
+    ready:      boolean,
+    autos:      Array<any>,
     attributes: Array<any>,
-    colors: Array<any>,
-    countries: Array<any>,
-    options: Array<any>,
-    product: Auto | null,
-    products: Auto[] | null
+    colors:     Array<any>,
+    countries:  Array<any>,
+    options:    Array<any>,
+    product:    Auto | null,
+    products:   Auto[] | null
 }
