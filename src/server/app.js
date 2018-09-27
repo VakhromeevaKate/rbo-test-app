@@ -1,9 +1,11 @@
+// @flow
+
 import express from 'express';
 import fs from 'fs';
 import Papa from 'papaparse';
 import { serverPort, dataPaths, papaConfig } from '../etc/config.json';
 
-function readFileCSV(filepath) {
+function readFileCSV(filepath: string) {
     const data = fs.readFileSync(filepath, 'utf8');
     return Papa.parse(data, papaConfig).data;
 }
@@ -28,7 +30,6 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    // console.log(dataPaths);
     res.send('Ok');
 });
 

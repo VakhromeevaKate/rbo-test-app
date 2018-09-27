@@ -1,6 +1,9 @@
-import React from 'react';
+// @flow
 
-const CommonProductRow = (props) => {
+import React from 'react';
+import * as Type from '../flowtypes/CommonProductRowTypes';
+
+const CommonProductRow = (props: Type.Props) => {
     const { product } = props;
     return (
         <tr>

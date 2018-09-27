@@ -1,9 +1,14 @@
+// @flow
+
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import FilterableProductTable from '../components/FilterableProductTable';
 import PrepareData from '../utils/PrepareData';
+import * as Type from '../flowtypes/AppTypes';
 
-class App extends PureComponent {
+import PropTypes from 'prop-types';
+
+class App extends PureComponent<Type.Props, Type.State> {
     constructor(props) {
         super(props);
         this.state = {

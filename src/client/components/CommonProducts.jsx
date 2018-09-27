@@ -1,7 +1,10 @@
+// @flow
+
 import React from 'react';
 import CommonProductRow from './CommonProductRow';
+import * as Type from '../flowtypes/CommonProductsTypes';
 
-const CommonProducts = (props) => {
+const CommonProducts = (props: Type.Props) => {
     return (
         <div>
             <h2>You may also like: </h2>
@@ -23,7 +26,7 @@ const CommonProducts = (props) => {
     );
 };
 
-function renderCommon(props) {
+function renderCommon(props: Type.Props) {
     let product;
     let common = [];
     if (props.productId !== null && props.productRowId) {
