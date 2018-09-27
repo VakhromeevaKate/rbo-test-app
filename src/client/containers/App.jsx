@@ -9,7 +9,7 @@ import * as Type from '../flowtypes/AppTypes';
 import PropTypes from 'prop-types';
 
 class App extends PureComponent<Type.Props, Type.State> {
-    constructor(props) {
+    constructor(props: Type.Props) {
         super(props);
         this.state = {
             ready: false,
@@ -17,7 +17,10 @@ class App extends PureComponent<Type.Props, Type.State> {
             attributes: [],
             colors: [],
             countries: [],
-            options: []
+            options: [],
+            product: [],
+            product: null,
+            products: null
         };
     }
 
@@ -34,7 +37,7 @@ class App extends PureComponent<Type.Props, Type.State> {
         );
     }
 
-    static getDerivedStateFromProps(nextProps, prevProps) {
+    static getDerivedStateFromProps(nextProps: Type.Props, prevProps: Type.Props): Type.Props {
         if (prevProps !== nextProps) {
             return nextProps;
         }

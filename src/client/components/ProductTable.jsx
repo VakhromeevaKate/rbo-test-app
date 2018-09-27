@@ -1,17 +1,20 @@
+// @flow
+
 import React, { PureComponent } from 'react';
 import ProductRow from './ProductRow';
 import ProductHeaderRow from './ProductHeaderRow';
 import GroupedProductHeaderRow from './GroupedProductHeaderRow';
 import ProductDetails from './ProductDetails';
 import CommonProducts from './CommonProducts';
+import * as Type from '../flowtypes/ProductTableTypes';
 
-class ProductTable extends PureComponent {
-    constructor(props){
+class ProductTable extends PureComponent <Type.Props, Type.State> {
+    constructor(props: Type.Props){
         super(props);
         this.state = {
-            showDetails: '',
-            productId: null,
-            productRowId: null
+            showDetails: false,
+            productId: '',
+            productRowId: 0
         };
     }
     
@@ -52,7 +55,7 @@ class ProductTable extends PureComponent {
                     <ProductHeaderRow mark="Mark" model="Model" type="Type" year="Year"/>
                 </thead>
                 <tbody className="Cars-body">{rows.map(row => {
-                    if(row.className){
+                    if(row instanceof Type.AutoHeader){
                         return <GroupedProductHeaderRow product={row} key={row.Id}/>
                     }
                     return (<ProductRow 
@@ -64,9 +67,9 @@ class ProductTable extends PureComponent {
         );
     }
 
-    filter(){
+    filter(): Type.Auto[] {
         const { filterText, products } = this.props;
-        let rows = [];
+        let rows: Type.Auto[] = [];
         products.forEach((product) => {
             if (product.Mark.toUpperCase().indexOf(filterText.toUpperCase()) === -1 &&
                     product.Model.toUpperCase().indexOf(filterText.toUpperCase()) === -1 &&
@@ -78,19 +81,19 @@ class ProductTable extends PureComponent {
         });
         return rows;
     }
-    sortByMark(rows) {
-        return rows.sort((a, b) => (a.Mark > b.Mark ? 1 : (a.Mark === b.Mark ? 0 : -1 )) );
+    sortByMark(rows: Type.Auto[]): Type.Auto[] {
+        return rows.sort((a: Type.Auto, b: Type.Auto) => (a.Mark > b.Mark ? 1 : (a.Mark === b.Mark ? 0 : -1 )) );
     }
 
-    sortByType(rows) {
-        return rows.sort((a, b) => (a.Type > b.Type ? 1 : (a.Type === b.Type ? 0 : -1 )) );
+    sortByType(rows: Type.Auto[]): Type.Auto[] {
+        return rows.sort((a: Type.Auto, b: Type.Auto) => (a.Type > b.Type ? 1 : (a.Type === b.Type ? 0 : -1 )) );
     }
 
-    sortByYear(rows) {
-        return rows.sort((a, b) => a.Year - b.Year);
+    sortByYear(rows: Type.Auto[]): Type.Auto[] {
+        return rows.sort((a: Type.Auto, b: Type.Auto) => a.Year - b.Year);
     }
 
-    groupByMark(rows){
+    groupByMark(rows: Type.Auto[]): any{
         this.sortByMark(rows);
         return rows.reduce((result, row, index) => {
             if (index === 0 || row.Mark !== rows[index-1].Mark) {
@@ -102,11 +105,11 @@ class ProductTable extends PureComponent {
         }, []);
     }
 
-    groupByType(rows) {
+    groupByType(rows: Type.Auto[]): any {
         this.sortByType(rows);
         return rows.reduce((result, row, index) => {
             if (index === 0 || row.Type !== rows[index-1].Type) {
-                let header = {Id: rows.length + index + 1, Mark: null, Type: row.Type, className: "GroupHeader"};    
+                let header: Type.AutoHeader = {Id: (rows.length + index + 1).toString(), Mark: null, Type: row.Type, className: "GroupHeader"};    
                 result.push(header);
             }
             result.push(row);
@@ -114,7 +117,7 @@ class ProductTable extends PureComponent {
         }, []);
     }
 
-    handleShowDetails = (value, id, row) => {
+    handleShowDetails = (value: boolean, id: string, row: number) => {
         this.setState({
                 showDetails: value,
                 productId: id,

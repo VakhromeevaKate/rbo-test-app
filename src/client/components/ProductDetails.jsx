@@ -1,11 +1,25 @@
-import React from 'react';
+// @flow
 
-const ProductDetails = (props) => {
+import React from 'react';
+import * as Type from '../flowtypes/ProductDetailsTypes';
+
+const ProductDetails = (props: Type.Props) => {
     let product;
     if (props.productId !== null) {
         product = props.products[props.productRowId];
+    } else {
+        product = {
+            Id:      null,
+            Mark:    '',
+            Model:   '',
+            Type:    null,
+            Country: null,
+            Color:   null,
+            Options: null,
+            Year:    null
+        }
     }
-
+    
     return (
         <div onClick={() => props.showDetails(false)}>
             <h1>Car details</h1>

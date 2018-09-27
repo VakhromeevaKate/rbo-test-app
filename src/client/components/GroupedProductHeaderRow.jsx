@@ -1,6 +1,9 @@
-import React from 'react';
+// @flow
 
-const GroupedProductHeaderRow = (props) => {
+import React from 'react';
+import * as Type from '../flowtypes/GroupedProductHeaderRowTypes';
+
+const GroupedProductHeaderRow = (props: Type.Props) => {
     return (
         <tr>
             <th className="GroupHeader" colSpan={4}>

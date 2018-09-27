@@ -1,6 +1,9 @@
-import React from 'react';
+// @flow
 
-const ProductHeaderRow = (props) => {
+import React from 'react';
+import * as Type from '../flowtypes/ProductHeaderRowTypes';
+
+const ProductHeaderRow = (props: Type.Props) => {
     return (
         <tr>
             <th>{props.mark}</th>

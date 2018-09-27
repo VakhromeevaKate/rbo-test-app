@@ -1,6 +1,9 @@
-import React from 'react';
+// @flow
 
-const ProductRow = (props) => {
+import React from 'react';
+import * as Type from '../flowtypes/ProductRowTypes';
+
+const ProductRow = (props: Type.Props) => {
     return (
         <tr onClick={() => props.showDetails(true, props.product.Id, props.product.Row)}>
             <td>{props.product.Mark}</td>

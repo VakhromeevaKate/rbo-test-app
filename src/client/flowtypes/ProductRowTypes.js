@@ -3,7 +3,6 @@
 import PropTypes from 'prop-types';
 
 export type Auto = {
-    Row:        number,
     Id:         string,
     Mark:       string,
     Model:      string,
@@ -11,11 +10,11 @@ export type Auto = {
     Country:    string,
     Color:      string,
     Options:    string,
-    Year:       number
+    Year:       number,
+    Row:        number
 }
 
 export type Props = {
-    products: Auto[],
-    productId:      string, 
-    productRowId:   number, 
+    product: Auto,
+    showDetails: function;
 };

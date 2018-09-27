@@ -1,18 +1,22 @@
+// @flow
+
 import React, { PureComponent } from 'react';
 import SearchBar from '../search/SearchBar';
 import ProductTable from './ProductTable';
+import * as Type from '../flowtypes/FilterableProductTableTypes';
 import './FilterableProductTable.css';
 
-class FilterableProductTable extends PureComponent {
-    constructor(props) {
+class FilterableProductTable extends PureComponent<Type.Props, Type.State> {
+    constructor(props: Type.Props) {
         super(props);
         this.state = {
             filterText: '',
-            sortByMark: '',
-            sortByType: '',
-            sortByYear: '',
-            groupByMark: '',
-            groupByType: ''
+            sortByMark: false,
+            sortByType: false,
+            sortByYear: false,
+            groupByMark: false,
+            groupByType: false,
+            showDetails: false
         };
     }
 
@@ -48,7 +52,7 @@ class FilterableProductTable extends PureComponent {
         );
     }
 
-    handleUserInput = (filterText) => {
+    handleUserInput = (filterText: string) => {
         this.setState({
             filterText: filterText
         });

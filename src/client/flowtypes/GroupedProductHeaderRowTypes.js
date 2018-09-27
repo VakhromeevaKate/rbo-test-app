@@ -3,7 +3,6 @@
 import PropTypes from 'prop-types';
 
 export type Auto = {
-    Row:        number,
     Id:         string,
     Mark:       string,
     Model:      string,
@@ -15,7 +14,5 @@ export type Auto = {
 }
 
 export type Props = {
-    products: Auto[],
-    productId:      string, 
-    productRowId:   number, 
+    product: Auto
 };

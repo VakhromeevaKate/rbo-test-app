@@ -1,5 +1,4 @@
 // @flow
-
 import PropTypes from 'prop-types';
 
 export type Auto = {
@@ -15,7 +14,16 @@ export type Auto = {
 }
 
 export type Props = {
-    products: Auto[],
-    productId:      string, 
-    productRowId:   number, 
-};
+    ready: boolean,
+    products: Auto[]
+}
+
+export type State = {
+    filterText: string,
+    sortByMark: boolean,
+    sortByType: boolean,
+    sortByYear: boolean,
+    groupByMark: boolean,
+    groupByType:  boolean,
+    showDetails: boolean
+}
