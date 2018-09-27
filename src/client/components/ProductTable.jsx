@@ -93,7 +93,7 @@ class ProductTable extends PureComponent <Type.Props, Type.State> {
         return rows.sort((a: Type.Auto, b: Type.Auto) => a.Year - b.Year);
     }
 
-    groupByMark(rows: Type.Auto[]): any{
+    groupByMark(rows: Type.Auto[]): any[]{
         this.sortByMark(rows);
         return rows.reduce((result, row, index) => {
             if (index === 0 || row.Mark !== rows[index-1].Mark) {
@@ -105,7 +105,7 @@ class ProductTable extends PureComponent <Type.Props, Type.State> {
         }, []);
     }
 
-    groupByType(rows: Type.Auto[]): any {
+    groupByType(rows: Type.Auto[]): any[] {
         this.sortByType(rows);
         return rows.reduce((result, row, index) => {
             if (index === 0 || row.Type !== rows[index-1].Type) {
