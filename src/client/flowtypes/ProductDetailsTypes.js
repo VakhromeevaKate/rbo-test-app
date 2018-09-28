@@ -18,6 +18,6 @@ export type Props = {
     products: Auto[],
     productId: string,
     productRowId: number,
-    showDetails: function,
+    showDetails: any,
     children: any
 };

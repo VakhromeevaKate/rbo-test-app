@@ -16,5 +16,5 @@ export type Auto = {
 
 export type Props = {
     product: Auto,
-    showDetails: function;
+    showDetails: any;
 };
