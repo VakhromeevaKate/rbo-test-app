@@ -1,3 +1,5 @@
+// 
+
 import express from 'express';
 import fs from 'fs';
 import Papa from 'papaparse';
@@ -28,7 +30,6 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    // console.log(dataPaths);
     res.send('Ok');
 });
 
