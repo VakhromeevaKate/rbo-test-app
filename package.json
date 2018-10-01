@@ -5,8 +5,7 @@
   "dependencies": {
     "ajv": "^6.5.3",
     "axios": "^0.18.0",
-    "eslint": "^5.6.0",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint": "^4.19.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
@@ -36,12 +35,11 @@
     "flow": "flow",
     "flow:check": "flow check ./src/",
     "flow:deps": "flow-typed install",
-    "flow:build": "flow-remove-types ./src/ -d ./build/ --all --pretty"
+    "flow:build": "babel ./src/ -d ./build/ --all --pretty"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
-    "babel-preset-react": "^6.24.1",
     "flow-remove-types": "^1.2.3",
     "flow-typed": "^2.5.1",
     "prettier-eslint": "^8.8.2"

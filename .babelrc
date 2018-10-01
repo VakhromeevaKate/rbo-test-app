@@ -1,7 +1,8 @@
 {
     "presets": [
       "react",
-      "flow"
+      "flow",
+      "@babel/preset-flow"
     ],
     "retainLines": true
-  }
+}
