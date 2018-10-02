@@ -1,8 +1,11 @@
 {
     "presets": [
-      "react",
-      "flow",
-      "@babel/preset-flow"
+      "@babel/preset-flow",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread"
     ],
     "retainLines": true
 }
