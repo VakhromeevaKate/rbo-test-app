@@ -23,7 +23,7 @@ class FilterableProductTable extends PureComponent {
         return (
             <div className="App">
                 <header className="App-header">
-                    <h1 className="App-title">RBO Test App</h1>
+                    <h1 className="App-title">Cars Test App</h1>
                 </header>
                 <h3>Searching for a car?</h3>
                 <div>
